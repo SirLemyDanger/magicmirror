@@ -1,0 +1,64 @@
+body{ 
+	margin:0px;
+	padding:0px;
+	//height:1919px;
+	//width:1079px;
+	color:white;
+	background-color:black;
+}
+div#body {
+	position:relative;
+	top:0px;
+	left:0px;
+	margin:0px;
+        padding:0px;
+	height:1919px;
+	width:1079px;
+        font-size: 2em;
+        //z-index: 10;
+	//outline:4px solid red;
+}
+div#body div{
+        z-index: -10;
+}
+table{
+        font-size: 1em;
+}
+div#weather{
+	position:absolute;
+	top:0px;
+	width:200px;
+	margin-right:0px;
+        right: 0;
+	text-align:right;
+}
+div#topleft{
+	position:absolute;
+	top:0px;
+	//width:200px;
+	margin-left:0px;
+        left: 0;
+	//text-align:right;
+}
+div#kompliment{
+	outline:2px solid blue;
+	position:absolute;
+	top:1300px;
+	width:500px; /* margin-left = width/2  sonst nicht zentriert*/ 
+	margin-left:-250px;
+	left:50%;
+	text-align:center;
+}
+.test{
+	font-weight:bold;
+}
+img#rain{
+        position: absolute;
+        height:1919px;
+	width:1079px;
+        //display: none;
+        z-index: -40;
+}
+canvas{
+    z-index: -1;
+}
