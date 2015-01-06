@@ -15,11 +15,7 @@ div#body {
 	height:1919px;
 	width:1079px;
         font-size: 2em;
-        //z-index: 10;
 	//outline:4px solid red;
-}
-div#body div{
-        z-index: -10;
 }
 table{
         font-size: 1em;
@@ -51,14 +47,4 @@ div#kompliment{
 }
 .test{
 	font-weight:bold;
-}
-img#rain{
-        position: absolute;
-        height:1919px;
-	width:1079px;
-        //display: none;
-        z-index: -40;
-}
-canvas{
-    z-index: -1;
 }

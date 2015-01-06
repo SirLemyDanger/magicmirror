@@ -28,7 +28,7 @@
             
 
             <div id="kompliment">
-            <?php echo "Ich hab dich gern<span id=\"name\"></span>.";/*hier tolle funktion zum komplimente anzeigen. Vllt auch JS*/  ?>
+            <?php echo "Ich hab dich sehr gern<span id=\"name\"></span>.";/*hier tolle funktion zum komplimente anzeigen. Vllt auch JS*/  ?>
             </div>
         </div>
     </body>
