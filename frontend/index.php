@@ -8,8 +8,6 @@
            <script src="js/main.js"></script>	
     </head>
     <body>
-       
-        <img id="rain" src="img/bw1.png" alt="rainbackground" >
         <div id="body">
             <div id="topleft">
                 <div id="clock">
