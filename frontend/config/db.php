@@ -15,7 +15,7 @@ if(!$query){
 else{
 	while($row = mysql_fetch_object($query))
 	{
-		echo "$row->url <br>";
+		echo "$row->firstname <br>";
 	}
 	echo "toll";
 	}
