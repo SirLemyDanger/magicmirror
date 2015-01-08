@@ -9,9 +9,15 @@ or die ("Die Datenbank existiert nicht.");
 
 $abfrage = "SELECT firstname FROM user";
 $ergebnis = mysql_query($abfrage);
-while($row = mysql_fetch_object($ergebnis))
-   {
-   echo "$row->url <br>";
-   }
+$if(!query){
+	echo mysql_error();
+	}
+else{
+	while($row = mysql_fetch_object($ergebnis))
+	{
+		echo "$row->url <br>";
+	}
+	echo "toll";
+	}
 
 ?>
