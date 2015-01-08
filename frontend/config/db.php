@@ -13,6 +13,44 @@ function newUser($firstname,$lastname,$nickname,$sex,$birthday) {
     ('$id','$firstname','$lastname','$nickname','$sex','$birthday')";
     return mysql_query($request);
 }
+function getAllUsers(){
+    $request = "SELECT id, firstname, lastname, nickname FROM user";
+    $query = mysql_query($request);
+    while($row = mysql_fetch_object($query))
+    {
+        echo "$row->firstname <br>";
+        #write answer into a json object
+    }
+}
+function getUserData($id){
+    $request = "SELECT id, firstname, lastname, nickname, sex, birthday FROM user WHERE id == $id";
+    $query = mysql_query($request);
+    while($row = mysql_fetch_object($query))
+    {
+        echo "$row->firstname <br>";
+        #write answer into a json object
+    }
+}
+function updateUser($id,$firstname,$lastname,$nickname,$sex,$birthday) {
+    if ($nickname == "") {
+        $nickname = $firstname;
+    }
+    if ($sex != ("male"||"female")){
+        $sex = "";
+    }
+    $request = "UPDATE user Set"
+            . "firstname = $firstname, "
+            . "lastname = $lastname, "
+            . "nickname = $nickname, "
+            . "sex = $sex ,"
+            . "birthday = $birthday "
+            . "WHERE id = $id";
+    return mysql_query($request);
+}
+function deleteUser($id) {
+    $request = "DELETE FROM user WHERE id = $id";
+    return mysql_query($request);    
+}
 $verbindung = mysql_connect ("localhost",
 "mirror", "raspberry")
 or die ("keine Verbindung möglich.
@@ -34,13 +72,13 @@ else{
 	}
 	echo "toll";
 }
-$method = filter_input(INPUT_POST, "method");
+$method = filter_input(INPUT_GET, "method");
 if ($method == "newuser"){
-    $firstname = filter_input(INPUT_POST, "firstname");
-    $lastname = filter_input(INPUT_POST, "lastname");
-    $nickname = filter_input(INPUT_POST, "nickname");
-    $firstname = filter_input(INPUT_POST, "sex");
-    $birthday = filter_input(INPUT_POST, "birthday");
+    $firstname = filter_input(INPUT_GET, "firstname");
+    $lastname = filter_input(INPUT_GET, "lastname");
+    $nickname = filter_input(INPUT_GET, "nickname");
+    $firstname = filter_input(INPUT_GET, "sex");
+    $birthday = filter_input(INPUT_GET, "birthday");
     newUser($firstname,$lastname,$nickname,$sex,$birthday);
 }
 
