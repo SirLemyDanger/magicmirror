@@ -4,22 +4,23 @@
      <title>Magic Mirror Config</title>
            <link rel="stylesheet" type="text/css" href="css/main.css">
            <script src="../js/jquery.js"></script>
-		   <script src="js/main.js"></script>	
+		   <script src="js/updateuser.js"></script>	
     </head>
     <body>
         <div id="body">
 			<form id="newuser" action="../newuser.php" method="get">
 				<label for="name">Name</label>  
-				<input type="text" name="firstname" id="firstname" value="test">
-				<input type="text" name="lastname" id="lastname" value="test">
-				<fieldset>
+				<input type="text" name="firstname" id="firstname" value="loading data ..." disabled="disabled">
+				<input type="text" name="lastname" id="lastname" value="loading data ..." disabled="disabled">
+				<fieldset id="sex" disabled="disabled">
 					<legend> Sex</legend>
 					<input type="radio" id="male" name="sex" value="male">
 						<label for="male"> male</label>
 					<input type="radio" id="female" name="sex" value="female">
 						<label for="female">female</label>
 				</fieldset>
-				<input type="submit" value="Weiter">
+				
+				<input id="submit" type="submit" value="Weiter" disabled="disabled">
 			</form>
         </div>
     </body>

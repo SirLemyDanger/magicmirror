@@ -51,7 +51,7 @@ function deleteUser($id) {
     $request = "DELETE FROM user WHERE id = $id";
     return mysql_query($request);    
 }
-$verbindung = mysql_connect ("localhost",
+$db_connection= mysql_connect ("localhost",
 "mirror", "raspberry")
 or die ("keine Verbindung möglich.
  Benutzername oder Passwort ist falsch");
@@ -59,27 +59,34 @@ or die ("keine Verbindung möglich.
 mysql_select_db("magicmirror")
 or die ("Die Datenbank existiert nicht.");
 
-$abfrage = "SELECT firstname FROM user";
-$query = mysql_query($abfrage);
-if(!$query){
-	echo mysql_error();
-}
-else{   
-        echo $query;
-	while($row = mysql_fetch_object($query))
-	{
-		echo "$row->firstname <br>";
-	}
-	echo "toll";
-}
 $method = filter_input(INPUT_GET, "method");
 if ($method == "newuser"){
     $firstname = filter_input(INPUT_GET, "firstname");
     $lastname = filter_input(INPUT_GET, "lastname");
     $nickname = filter_input(INPUT_GET, "nickname");
-    $firstname = filter_input(INPUT_GET, "sex");
+    $sex = filter_input(INPUT_GET, "sex");
     $birthday = filter_input(INPUT_GET, "birthday");
-    newUser($firstname,$lastname,$nickname,$sex,$birthday);
+    $answer = newUser($firstname,$lastname,$nickname,$sex,$birthday);
 }
-
+elseif ($method == "getallusers"){
+    $answer = getAllUsers();
+}
+elseif ($method == "getuserdata"){
+    $id = filter_input(INPUT_GET, "id");
+    $answer = getUserData($id);
+}
+elseif ($method == "newuser"){
+    $id = filter_input(INPUT_GET, "id");
+    $firstname = filter_input(INPUT_GET, "firstname");
+    $lastname = filter_input(INPUT_GET, "lastname");
+    $nickname = filter_input(INPUT_GET, "nickname");
+    $sex = filter_input(INPUT_GET, "sex");
+    $birthday = filter_input(INPUT_GET, "birthday");
+    $answer = updateUser($id,$firstname,$lastname,$nickname,$sex,$birthday);
+}
+elseif ($method == "getuserdata"){
+    $id = filter_input(INPUT_GET, "id");
+    $answer = deleteuser($id);
+}
+echo $answer;
 ?>
