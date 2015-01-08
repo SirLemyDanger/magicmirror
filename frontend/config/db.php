@@ -9,7 +9,7 @@ or die ("Die Datenbank existiert nicht.");
 
 $abfrage = "SELECT firstname FROM user";
 $query = mysql_query($abfrage);
-$if(!$query){
+if(!$query){
 	echo mysql_error();
 	}
 else{
