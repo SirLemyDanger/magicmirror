@@ -12,10 +12,11 @@ $query = mysql_query($abfrage);
 if(!$query){
 	echo mysql_error();
 	}
-else{
+else{   
+        echo $query;
 	while($row = mysql_fetch_object($query))
 	{
-		echo "$row <br>";
+		echo "$row->firstname <br>";
 	}
 	echo "toll";
 	}
