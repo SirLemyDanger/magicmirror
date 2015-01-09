@@ -46,13 +46,13 @@ function updateUser($id,$firstname,$lastname,$nickname,$sex,$birthday) {
         $nickname = $firstname;
     }
     if ($sex != ("male"||"female")){
-        $sex = "";
+        $sex = "unknown";
     }
     $query = "UPDATE user Set"
             . "firstname = $firstname, "
             . "lastname = $lastname, "
             . "nickname = $nickname, "
-            . "sex = $sex ,"
+            . "sex = $sex, "
             . "birthday = $birthday "
             . "WHERE id = $id";
     $result = $mysqli->query($query);
