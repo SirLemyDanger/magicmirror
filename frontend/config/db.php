@@ -39,9 +39,9 @@ function getUserData($id){
     global $mysqli;
     $query = "SELECT id, firstname, lastname, nickname, sex, birthday FROM user WHERE id = '$id'";
     $result = $mysqli->query($query);
-//    if(!$result){
-//        printf("Errormessage: %s\n", $mysqli->error);
-//    }
+    if(!$result){
+        printf("Errormessage: %s\n", $mysqli->error);
+    }
     $data = array();
     while ($dataline = $result->fetch_array(MYSQLI_ASSOC)){
         array_push($data, $dataline);
@@ -67,12 +67,12 @@ function updateUser($id,$firstname,$lastname,$nickname,$sex,$birthday) {
     if(!$result){
         printf("Errormessage: %s\n", $mysqli->error);
     }
-//    $data = array();
-//    while ($dataline = $result->fetch_array(MYSQLI_ASSOC)){
-//        array_push($data, $dataline);
-//    }
+    $data = array();
+    while ($dataline = $result->fetch_array(MYSQLI_ASSOC)){
+        array_push($data, $dataline);
+    }
     echo json;
-//    echo json_encode($data);
+    printf( json_encode($data));
     return OK;
 }
 function deleteUser($id) {
