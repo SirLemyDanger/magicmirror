@@ -104,7 +104,7 @@ if ($method == "newuser"){
 }elseif ($method == "getuserdata"){
     $id = filter_input(INPUT_GET, "id");
     $answer = getUserData($id);
-}elseif ($method == "newuser"){
+}elseif ($method == "updateuser"){
     $id = filter_input(INPUT_GET, "id");
     $firstname = filter_input(INPUT_GET, "firstname");
     $lastname = filter_input(INPUT_GET, "lastname");
