@@ -56,7 +56,7 @@ function updateUser($id,$firstname,$lastname,$nickname,$sex,$birthday) {
     if ($sex != ("male"||"female")){
         $sex = "unknown";
     }
-    $query = "UPDATE user Set "
+    $query = "UPDATE user SET "
             . "firstname = '$firstname', "
             . "lastname = '$lastname', "
             . "nickname = '$nickname', "
