@@ -76,6 +76,12 @@ if (!$mysqli->real_connect ("localhost", "mirror", "raspberry", "magicmirror")) 
     die('Connect Error (' . mysqli_connect_errno() . ') '
             . mysqli_connect_error());
 }
+/* change character set to utf8 */
+if (!$mysqli->set_charset("utf8")) {
+    printf("Error loading character set utf8: %s\n", $mysqli->error);
+} else {
+    printf("Current character set: %s\n", $mysqli->character_set_name());
+}
 
 echo 'Success... ' . $mysqli->host_info . "\n";
 
