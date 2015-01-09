@@ -23,9 +23,11 @@ getUserData = $.ajax( {
 	dataType: "json",
 	data: {"method":"getuserdata", "id": id }
 });
-getUserData.done(function(data){
-	$["#firstname"].attr( "value", "fertig geladen :)" ).removeAttr("disabled");
-	$["#lastname"].attr( "value", "fertig geladen :)" ).removeAttr("disabled");
-	$["#sex"].removeAttr("disabled");
-	$["#submit"].removeAttr("disabled");
+jQuery( document ).ready(function() {
+	getUserData.done(function(data){
+		$( "#firstname" ).attr( "value", "fertig geladen :)" ).removeAttr("disabled");
+		$( "#lastname" ).attr( "value", "fertig geladen :)" ).removeAttr("disabled");
+		$( "#sex" ).removeAttr("disabled");
+		$( "#submit" ).removeAttr("disabled");
+	});
 });
