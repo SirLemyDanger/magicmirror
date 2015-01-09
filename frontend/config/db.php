@@ -58,8 +58,8 @@ function updateUser($id,$firstname,$lastname,$nickname,$sex,$birthday) {
     }
     $query = "UPDATE user Set "
             . "firstname = '$firstname', "
-            . "lastname = $lastname, "
-            . "nickname = $nickname, "
+            . "lastname = '$lastname', "
+            . "nickname = '$nickname', "
             . "sex = $sex, "
             . "birthday = $birthday "
             . "WHERE id = $id";
