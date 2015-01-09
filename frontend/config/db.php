@@ -29,7 +29,7 @@ function getAllUsers(){
 }
 function getUserData($id){
     global $mysqli;
-    $query = "SELECT id, firstname, lastname, nickname, sex, birthday FROM user WHERE id == $id";
+    $query = "SELECT id, firstname, lastname, nickname, sex, birthday FROM user WHERE id = $id";
     $result = $mysqli->query($query);
     if(!$result){
         printf("Errormessage: %s\n", $mysqli->error);
