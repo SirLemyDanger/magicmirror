@@ -48,13 +48,13 @@ function updateUser($id,$firstname,$lastname,$nickname,$sex,$birthday) {
     if ($sex != ("male"||"female")){
         $sex = "unknown";
     }
-    $query = "UPDATE user Set"
-            . "firstname = $firstname, "
-            . "lastname = $lastname, "
-            . "nickname = $nickname, "
-            . "sex = $sex, "
-            . "birthday = $birthday "
-            . "WHERE id = $id";
+    $query = "UPDATE user Set "
+            . "firstname = '$firstname' , "
+            . "lastname = '$lastname' , "
+            . "nickname = '$nickname' , "
+            . "sex = '$sex' , "
+            . "birthday = '$birthday ' "
+            . "WHERE id = '$id'";
     $result = $mysqli->query($query);
     if(!$result){
         printf("Errormessage: %s\n", $mysqli->error);
