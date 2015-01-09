@@ -9,17 +9,22 @@
     <body>
         <div id="body">
 			<form id="newuser" action="../newuser.php" method="get">
-				<label for="name">Name</label>  
-				<input type="text" name="firstname" id="firstname" value="test">
-				<input type="text" name="lastname" id="lastname" value="test">
-				<fieldset>
+				<label for="firstname">Name</label>  
+				<input type="text" name="firstname" id="firstname" required="required">
+				<input type="text" name="lastname" id="lastname" ><br>
+				<label for="nickname">Nickname</label>  
+				<input type="text" name="nickname" id="nickname" >
+				<fieldset id="sex">
 					<legend> Sex</legend>
 					<input type="radio" id="male" name="sex" value="male">
 						<label for="male"> male</label>
 					<input type="radio" id="female" name="sex" value="female">
 						<label for="female">female</label>
 				</fieldset>
-				<input type="submit" value="Weiter">
+				<label for="birthday">Birthday</label>
+				<input type="date" name="birthday" id="birthday"><br>
+				
+				<input id="submit" type="submit" value="Weiter">
 			</form>
         </div>
     </body>

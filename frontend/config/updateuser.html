@@ -10,8 +10,10 @@
         <div id="body">
 			<form id="newuser" action="../newuser.php" method="get">
 				<label for="name">Name</label>  
-				<input type="text" name="firstname" id="firstname" value="loading data ..." disabled="disabled">
-				<input type="text" name="lastname" id="lastname" value="loading data ..." disabled="disabled">
+				<input type="text" name="firstname" id="firstname" value="loading data ..." disabled="disabled" required="required">
+				<input type="text" name="lastname" id="lastname" value="loading data ..." disabled="disabled"><br>
+				<label for="nickname">Nickname</label>  
+				<input type="text" name="nickname" id="nickname" value="loading data ..." disabled="disabled">
 				<fieldset id="sex" disabled="disabled">
 					<legend> Sex</legend>
 					<input type="radio" id="male" name="sex" value="male">
@@ -19,6 +21,8 @@
 					<input type="radio" id="female" name="sex" value="female">
 						<label for="female">female</label>
 				</fieldset>
+				<label for="birthday">Birthday</label>
+				<input type="date" name="birthday" id="birthday" value="loading data ..." disabled="disabled"><br>
 				
 				<input id="submit" type="submit" value="Weiter" disabled="disabled">
 			</form>
