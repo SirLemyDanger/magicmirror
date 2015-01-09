@@ -21,7 +21,7 @@ getUserData = $.ajax( {
 	async: true,
 	type: "GET",
 	dataType: "json",
-	data: {"method":"getuserdata", "id":id}
+	data: {"method":"getuserdata", "id": id }
 });
 getUserData.done(function(data){
 	$["#firstname"].attr( "value", "fertig geladen :)" ).removeAttr("disabled");
