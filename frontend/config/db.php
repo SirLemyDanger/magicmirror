@@ -62,7 +62,7 @@ function updateUser($id,$firstname,$lastname,$nickname,$sex,$birthday) {
             . "nickname = '$nickname', "
             . "sex = '$sex', "
             . "birthday = $birthday "
-            . "WHERE id = $id";
+            . "WHERE id = '$id'";
     echo $query;
     $result = $mysqli->query($query);
     if(!$result){
