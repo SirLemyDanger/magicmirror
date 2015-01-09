@@ -71,7 +71,7 @@ function updateUser($id,$firstname,$lastname,$nickname,$sex,$birthday) {
     printf($result);
     echo "json";
    // printf( json_encode($data));
-    return "OK";
+    return $result;
 }
 function deleteUser($id) {
     global $mysqli;
