@@ -57,12 +57,12 @@ function updateUser($id,$firstname,$lastname,$nickname,$sex,$birthday) {
         $sex = "unknown";
     }
     $query = "UPDATE user Set "
-            . "firstname = '$firstname', "
-            . "lastname = '$lastname', "
-            . "nickname = '$nickname', "
-            . "sex = '$sex', "
-            . "birthday = '$birthday' "
-            . "WHERE id = '$id'";
+            . "firstname = $firstname, "
+            . "lastname = $lastname, "
+            . "nickname = $nickname, "
+            . "sex = $sex, "
+            . "birthday = $birthday "
+            . "WHERE id = $id";
     echo $query;
     $result = $mysqli->query($query);
     if(!$result){
