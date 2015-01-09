@@ -21,9 +21,13 @@ function getAllUsers(){
     global $mysqli;
     $query = "SELECT id, firstname, lastname, nickname FROM user";
     $result = $mysqli->query($query);
-    $data = $result->fetch_all(MYSQLI_ASSOC);
-    var_dump($data);
+    while ($result->fetch_array(MYSQLI_ASSOC)){
+        var_dump($data);
     var_dump(json_encode($data));
+    }
+//    $data = $result->fetch_all(MYSQLI_ASSOC);
+//    var_dump($data);
+//    var_dump(json_encode($data));
     return json_encode($data);
 }
 function getUserData($id){
