@@ -25,7 +25,7 @@ function getAllUsers(){
     while ($data = $result->fetch_array(MYSQLI_ASSOC)){
         $returnvalue = array_merge($data, $returnvalue);
     }
-    return json_encode($data);
+    return json_encode($returnvalue);
 }
 function getUserData($id){
     global $mysqli;
