@@ -27,6 +27,7 @@ jQuery( document ).ready(function() {
 	getUserData.done(function(data){
 		$( "#firstname" ).attr( "value", data[0].firstname ).removeAttr("disabled");
 		$( "#lastname" ).attr( "value", data[0].lastname ).removeAttr("disabled");
+		$( "#nickname" ).attr( "value", data[0].nickname ).removeAttr("disabled");
 		if (data[0].sex == male){
 			$( "#male" ).attr( checked="checked");
 		}else if (data[0].sex == female){
