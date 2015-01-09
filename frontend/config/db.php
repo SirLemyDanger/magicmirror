@@ -83,7 +83,7 @@ if (!$mysqli->real_connect ("localhost", "mirror", "raspberry", "magicmirror")) 
 echo 'Success... ' . $mysqli->host_info . "\n";
 
 
-getAllUsers();
+$answer = getAllUsers();
 $method = filter_input(INPUT_GET, "method");
 if ($method == "newuser"){
     $firstname = filter_input(INPUT_GET, "firstname");
