@@ -3,6 +3,7 @@
 $mysqli = mysqli_init();
 
 function newUser($firstname,$lastname,$nickname,$sex,$birthday) {
+    global $mysqli;
     $id = uniqid();
     if ($nickname == "") {
         $nickname = $firstname;
@@ -17,6 +18,7 @@ function newUser($firstname,$lastname,$nickname,$sex,$birthday) {
     return $mysqli->query($query);
 }
 function getAllUsers(){
+    global $mysqli;
     $query = "SELECT id, firstname, lastname, nickname FROM user";
     $result = $mysqli->query($query);
     $data = $result->fetch_all(MYSQLI_ASSOC);
@@ -25,6 +27,7 @@ function getAllUsers(){
     return json_encode($data);
 }
 function getUserData($id){
+    global $mysqli;
     $query = "SELECT id, firstname, lastname, nickname, sex, birthday FROM user WHERE id == $id";
     $result = $mysqli->query($query);
     $data = $result->fetch_all(MYSQLI_ASSOC);
@@ -32,6 +35,7 @@ function getUserData($id){
     return json_encode($data);
 }
 function updateUser($id,$firstname,$lastname,$nickname,$sex,$birthday) {
+    global $mysqli;
     if ($nickname == "") {
         $nickname = $firstname;
     }
@@ -48,6 +52,7 @@ function updateUser($id,$firstname,$lastname,$nickname,$sex,$birthday) {
     return $mysqli->query($query);
 }
 function deleteUser($id) {
+    global $mysqli;
     $query = "DELETE FROM user WHERE id = $id";
     return $mysqli->query($query);    
 }
