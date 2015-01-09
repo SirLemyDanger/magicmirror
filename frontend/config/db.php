@@ -33,7 +33,7 @@ function getUserData($id){
     $result = $mysqli->query($query);
     if(!$result){
         printf("Errormessage: %s\n", $mysqli->error);
-}
+    }
     $data = array();
     while ($dataline = $result->fetch_array(MYSQLI_ASSOC)){
         array_push($data, $dataline);
@@ -92,7 +92,7 @@ echo 'Success... ' . $mysqli->host_info . "\n";
 
 //$method = filter_input(INPUT_GET, "method");
 $method = "getuserdata";
-$id = "1";
+$id = "2";
 if ($method == "newuser"){
     $firstname = filter_input(INPUT_GET, "firstname");
     $lastname = filter_input(INPUT_GET, "lastname");
@@ -117,7 +117,7 @@ elseif ($method == "newuser"){
     $birthday = filter_input(INPUT_GET, "birthday");
     $answer = updateUser($id,$firstname,$lastname,$nickname,$sex,$birthday);
 }
-elseif ($method == "getuserdata"){
+elseif ($method == "deleteuser"){
     $id = filter_input(INPUT_GET, "id");
     $answer = deleteuser($id);
 }
