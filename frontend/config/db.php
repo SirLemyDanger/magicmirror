@@ -68,10 +68,7 @@ function updateUser($id,$firstname,$lastname,$nickname,$sex,$birthday) {
         printf("Errormessage: %s\n", $mysqli->error);
     }
     echo "start";
-    $data = array();
-    while ($dataline = $result->fetch_array(MYSQLI_ASSOC)){
-        array_push($data, $dataline);
-    }
+    printf($result);
     echo "json";
    // printf( json_encode($data));
     return "OK";
