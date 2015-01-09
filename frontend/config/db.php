@@ -67,10 +67,6 @@ function updateUser($id,$firstname,$lastname,$nickname,$sex,$birthday) {
     if(!$result){
         printf("Errormessage: %s\n", $mysqli->error);
     }
-    echo "start";
-    printf($result);
-    echo "json";
-   // printf( json_encode($data));
     return $result;
 }
 function deleteUser($id) {
