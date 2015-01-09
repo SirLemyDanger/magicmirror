@@ -11,25 +11,22 @@ function newUser($firstname,$lastname,$nickname,$sex,$birthday) {
     (id, firstname, lastname, nickname, sex, birthday)
     VALUES
     ('$id','$firstname','$lastname','$nickname','$sex','$birthday')";
-    return mysql_query($request);
+    return mysqli_query($request);
 }
 function getAllUsers(){
     $request = "SELECT id, firstname, lastname, nickname FROM user";
-    $query = mysql_query($request);
-    while($row = mysql_fetch_object($query))
-    {
-        echo "$row->firstname <br>";
-        #write answer into a json object
-    }
+    $query = mysqli_query($request);
+    $data = mysqli_fetch_all($query);
+    echo $data;
+    echo json_encode($data);
+    return json_encode($data);
 }
 function getUserData($id){
     $request = "SELECT id, firstname, lastname, nickname, sex, birthday FROM user WHERE id == $id";
-    $query = mysql_query($request);
-    while($row = mysql_fetch_object($query))
-    {
-        echo "$row->firstname <br>";
-        #write answer into a json object
-    }
+    $query = mysqli_query($request);
+    $data = mysqli_fetch_all($query);
+    echo $data;
+    return json_encode($data);
 }
 function updateUser($id,$firstname,$lastname,$nickname,$sex,$birthday) {
     if ($nickname == "") {
@@ -45,20 +42,17 @@ function updateUser($id,$firstname,$lastname,$nickname,$sex,$birthday) {
             . "sex = $sex ,"
             . "birthday = $birthday "
             . "WHERE id = $id";
-    return mysql_query($request);
+    return mysqli_query($request);
 }
 function deleteUser($id) {
     $request = "DELETE FROM user WHERE id = $id";
-    return mysql_query($request);    
+    return mysqli_query($request);    
 }
-$db_connection= mysql_connect ("localhost",
-"mirror", "raspberry")
-or die ("keine Verbindung möglich.
- Benutzername oder Passwort ist falsch");
+$db_connection= mysqli_connect ("localhost",
+"mirror", "raspberry", "magicmirror")
+or die ("keine Verbindung zur Datenbank möglich.");
 
-mysql_select_db("magicmirror")
-or die ("Die Datenbank existiert nicht.");
-
+getAllUsers();
 $method = filter_input(INPUT_GET, "method");
 if ($method == "newuser"){
     $firstname = filter_input(INPUT_GET, "firstname");
