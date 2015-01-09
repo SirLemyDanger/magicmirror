@@ -1,4 +1,12 @@
 <?php
+// terminal -> GET
+foreach ($argv as $arg) {
+    $e=explode("=",$arg);
+    if(count($e)==2)
+        $_GET[$e[0]]=$e[1];
+    else   
+        $_GET[$e[0]]=0;
+}
 
 $mysqli = mysqli_init();
 
@@ -63,7 +71,9 @@ function updateUser($id,$firstname,$lastname,$nickname,$sex,$birthday) {
     while ($dataline = $result->fetch_array(MYSQLI_ASSOC)){
         array_push($data, $dataline);
     }
-    return json_encode($data);    
+    echo json;
+    echo json_encode($data);
+    return OK;
 }
 function deleteUser($id) {
     global $mysqli;
