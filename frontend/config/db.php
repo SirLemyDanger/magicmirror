@@ -73,7 +73,7 @@ function updateUser($id,$firstname,$lastname,$nickname,$sex,$birthday) {
         array_push($data, $dataline);
     }
     echo "json";
-    printf( json_encode($data));
+   // printf( json_encode($data));
     return "OK";
 }
 function deleteUser($id) {
