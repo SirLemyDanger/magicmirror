@@ -8,8 +8,9 @@
     </head>
     <body>
         <div id="body">
-			<form id="newuser" action="db.php" method="get">
+			<form id="updateuser" action="db.php" method="get">
 				<input type="hidden" name="method" value="updateuser">
+				<input type="hidden" id="id" name="id">
 				<label for="name">Name</label>  
 				<input type="text" name="firstname" id="firstname" value="loading data ..." disabled="disabled" required="required">
 				<input type="text" name="lastname" id="lastname" value="loading data ..." disabled="disabled"><br>

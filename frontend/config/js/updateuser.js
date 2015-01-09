@@ -25,6 +25,7 @@ getUserData = $.ajax( {
 });
 jQuery( document ).ready(function() {
 	getUserData.done(function(data){
+		$( "#id" ).attr( "value", data[0].id );
 		$( "#firstname" ).attr( "value", data[0].firstname ).removeAttr("disabled");
 		$( "#lastname" ).attr( "value", data[0].lastname ).removeAttr("disabled");
 		$( "#nickname" ).attr( "value", data[0].nickname ).removeAttr("disabled");
