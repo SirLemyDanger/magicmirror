@@ -17,8 +17,8 @@ function getAllUsers(){
     $request = "SELECT id, firstname, lastname, nickname FROM user";
     $query = mysqli_query($request);
     $data = mysqli_fetch_all($query);
-    echo $data;
-    echo json_encode($data);
+    var_dump($data);
+    var_dump(json_encode($data));
     return json_encode($data);
 }
 function getUserData($id){
