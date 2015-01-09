@@ -24,8 +24,6 @@ function getAllUsers(){
     $data = array();
     while ($dataline = $result->fetch_array(MYSQLI_ASSOC)){
         array_push($data, $dataline);
-        echo "var_dump";
-        var_dump($data);
     }
     return json_encode($data);
 }
@@ -33,8 +31,10 @@ function getUserData($id){
     global $mysqli;
     $query = "SELECT id, firstname, lastname, nickname, sex, birthday FROM user WHERE id == $id";
     $result = $mysqli->query($query);
-    $data = $result->fetch_all(MYSQLI_ASSOC);
-    echo $data;
+    $data = array();
+    while ($dataline = $result->fetch_array(MYSQLI_ASSOC)){
+        array_push($data, $dataline);
+    }
     return json_encode($data);
 }
 function updateUser($id,$firstname,$lastname,$nickname,$sex,$birthday) {
