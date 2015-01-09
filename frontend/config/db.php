@@ -57,7 +57,7 @@ function updateUser($id,$firstname,$lastname,$nickname,$sex,$birthday) {
         $sex = "unknown";
     }
     $query = "UPDATE user Set "
-            . "firstname = $firstname, "
+            . "firstname = '$firstname', "
             . "lastname = $lastname, "
             . "nickname = $nickname, "
             . "sex = $sex, "
