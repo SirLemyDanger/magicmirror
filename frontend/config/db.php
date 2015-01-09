@@ -60,7 +60,7 @@ function updateUser($id,$firstname,$lastname,$nickname,$sex,$birthday) {
             . "firstname = '$firstname', "
             . "lastname = '$lastname', "
             . "nickname = '$nickname', "
-            . "sex = $sex, "
+            . "sex = '$sex', "
             . "birthday = $birthday "
             . "WHERE id = $id";
     echo $query;
