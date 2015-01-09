@@ -63,6 +63,7 @@ function updateUser($id,$firstname,$lastname,$nickname,$sex,$birthday) {
             . "sex = '$sex', "
             . "birthday = '$birthday' "
             . "WHERE id = '$id'";
+    echo $query;
     $result = $mysqli->query($query);
     if(!$result){
         printf("Errormessage: %s\n", $mysqli->error);
