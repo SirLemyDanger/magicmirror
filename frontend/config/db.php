@@ -1,4 +1,7 @@
 <?php
+
+$mysqli = mysqli_init();
+
 function newUser($firstname,$lastname,$nickname,$sex,$birthday) {
     $id = uniqid();
     if ($nickname == "") {
@@ -7,24 +10,24 @@ function newUser($firstname,$lastname,$nickname,$sex,$birthday) {
     if ($sex != ("male"||"female")){
         $sex = "";
     }
-    $request = "INSERT INTO user
+    $query = "INSERT INTO user
     (id, firstname, lastname, nickname, sex, birthday)
     VALUES
     ('$id','$firstname','$lastname','$nickname','$sex','$birthday')";
-    return mysqli_query($request);
+    return $mysqli->query($query);
 }
 function getAllUsers(){
-    $request = "SELECT id, firstname, lastname, nickname FROM user";
-    $query = mysqli_query($request);
-    $data = mysqli_fetch_all($query);
+    $query = "SELECT id, firstname, lastname, nickname FROM user";
+    $result = $mysqli->query($query);
+    $data = $result->fetch_all(MYSQLI_ASSOC);
     var_dump($data);
     var_dump(json_encode($data));
     return json_encode($data);
 }
 function getUserData($id){
-    $request = "SELECT id, firstname, lastname, nickname, sex, birthday FROM user WHERE id == $id";
-    $query = mysqli_query($request);
-    $data = mysqli_fetch_all($query);
+    $query = "SELECT id, firstname, lastname, nickname, sex, birthday FROM user WHERE id == $id";
+    $result = $mysqli->query($query);
+    $data = $result->fetch_all(MYSQLI_ASSOC);
     echo $data;
     return json_encode($data);
 }
@@ -35,20 +38,20 @@ function updateUser($id,$firstname,$lastname,$nickname,$sex,$birthday) {
     if ($sex != ("male"||"female")){
         $sex = "";
     }
-    $request = "UPDATE user Set"
+    $query = "UPDATE user Set"
             . "firstname = $firstname, "
             . "lastname = $lastname, "
             . "nickname = $nickname, "
             . "sex = $sex ,"
             . "birthday = $birthday "
             . "WHERE id = $id";
-    return mysqli_query($request);
+    return $mysqli->query($query);
 }
 function deleteUser($id) {
-    $request = "DELETE FROM user WHERE id = $id";
-    return mysqli_query($request);    
+    $query = "DELETE FROM user WHERE id = $id";
+    return $mysqli->query($query);    
 }
-$db_connection= mysqli_connect ("localhost",
+$mysqli->real_connect ("localhost",
 "mirror", "raspberry", "magicmirror")
 or die ("keine Verbindung zur Datenbank möglich.");
 
