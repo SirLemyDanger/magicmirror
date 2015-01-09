@@ -14,19 +14,18 @@ $.extend({
     return $.getUrlVars()[name];
   }
 });
-({
-	getUserData = $.ajax( {
-		url: "db.php",
-		async: true,
-		type: "GET",
-		//chace: false,
-		dataType: "json"
-		data: {"method":"getuserdata"},
-	});
-	getUserData.done(function(data){
-		$["#firstname"].attr( "value", "fertig geladen :)" ).removeAttr("disabled");
-		$["#lastname"].attr( "value", "fertig geladen :)" ).removeAttr("disabled");
-		$["#sex"].removeAttr("disabled");
-		$["#submit"].removeAttr("disabled");
-	});
+
+var id = $.getUrlVar("id");
+getUserData = $.ajax( {
+	url: "db.php",
+	async: true,
+	type: "GET",
+	dataType: "json",
+	data: {"method":"getuserdata", "id":id}
+});
+getUserData.done(function(data){
+	$["#firstname"].attr( "value", "fertig geladen :)" ).removeAttr("disabled");
+	$["#lastname"].attr( "value", "fertig geladen :)" ).removeAttr("disabled");
+	$["#sex"].removeAttr("disabled");
+	$["#submit"].removeAttr("disabled");
 });
