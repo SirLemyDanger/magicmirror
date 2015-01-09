@@ -67,13 +67,14 @@ function updateUser($id,$firstname,$lastname,$nickname,$sex,$birthday) {
     if(!$result){
         printf("Errormessage: %s\n", $mysqli->error);
     }
+    echo "start";
     $data = array();
     while ($dataline = $result->fetch_array(MYSQLI_ASSOC)){
         array_push($data, $dataline);
     }
-    echo json;
+    echo "json";
     printf( json_encode($data));
-    return OK;
+    return "OK";
 }
 function deleteUser($id) {
     global $mysqli;
