@@ -87,9 +87,9 @@ if (!$mysqli->set_charset("utf8")) {
 
 echo 'Success... ' . $mysqli->host_info . "\n";
 
-
-$answer = getAllUsers();
-$method = filter_input(INPUT_GET, "method");
+//$method = filter_input(INPUT_GET, "method");
+$method = "getuserdata";
+$id = "1";
 if ($method == "newuser"){
     $firstname = filter_input(INPUT_GET, "firstname");
     $lastname = filter_input(INPUT_GET, "lastname");
