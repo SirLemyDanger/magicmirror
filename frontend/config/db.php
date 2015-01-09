@@ -49,17 +49,21 @@ function updateUser($id,$firstname,$lastname,$nickname,$sex,$birthday) {
         $sex = "unknown";
     }
     $query = "UPDATE user Set "
-            . "firstname = '$firstname' , "
-            . "lastname = '$lastname' , "
-            . "nickname = '$nickname' , "
-            . "sex = '$sex' , "
-            . "birthday = '$birthday ' "
+            . "firstname = '$firstname', "
+            . "lastname = '$lastname', "
+            . "nickname = '$nickname', "
+            . "sex = '$sex', "
+            . "birthday = '$birthday' "
             . "WHERE id = '$id'";
     $result = $mysqli->query($query);
     if(!$result){
         printf("Errormessage: %s\n", $mysqli->error);
     }
-    return;
+    while ($dataline = $result->fetch_array(MYSQLI_ASSOC)){
+        array_push($data, $dataline);
+    }
+    return json_encode($data);
+    
 }
 function deleteUser($id) {
     global $mysqli;
