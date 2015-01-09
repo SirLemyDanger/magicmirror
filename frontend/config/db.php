@@ -23,7 +23,7 @@ function getAllUsers(){
     $result = $mysqli->query($query);
     $data = array();
     while ($dataline = $result->fetch_array(MYSQLI_ASSOC)){
-        $data = array_merge($data, $dataline);
+        array_push($dataline);
         echo "var_dump";
         var_dump($data);
     }
