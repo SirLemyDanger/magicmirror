@@ -128,5 +128,9 @@ if ($method == "newuser"){
     $id = filter_input(INPUT_GET, "id");
     $answer = deleteuser($id);
 }
-echo $answer;
+if ($answer == TRUE){
+    $mysqli->info;
+}else{
+    echo $answer;
+}
 ?>
