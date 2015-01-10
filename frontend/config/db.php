@@ -61,8 +61,8 @@ function updateUser($id,$firstname,$lastname,$nickname,$sex,$birthday) {
     if ($sex != ("male"||"female")){
         $sex = "unknown";
     }
-    $query = "UPDATE user SET firstname = '$firstname' WHERE id = '$id';";//, lastname = '$lastname', nickname = '$nickname', sex = '$sex', birthday = '$birthday' WHERE id = '$id';";
-    $result = $mysqli->query($query);
+    $query = "UPDATE user SET firstname = '$firstname', lastname = '$lastname', nickname = '$nickname', sex = '$sex', birthday = '$birthday' WHERE id = '$id';";
+    $result = $mysqli->real_query($query);
     if(!$result){
         printf("Errormessage: %s\n", $mysqli->error);
     }
