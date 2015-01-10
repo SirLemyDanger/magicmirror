@@ -58,9 +58,9 @@ function updateUser($id,$firstname,$lastname,$nickname,$sex,$birthday) {
     }
     $query = "UPDATE user SET firstname = '$firstname' WHERE id = '$id';";//, lastname = '$lastname', nickname = '$nickname', sex = '$sex', birthday = '$birthday' WHERE id = '$id';";
     $result = $mysqli->query($query);
-    //if(!$result){
+    if(!$result){
         printf("Errormessage: %s\n", $mysqli->error);
-    //}
+    }
     echo $query;
     return $result;
 }
