@@ -65,6 +65,8 @@ function updateUser($id,$firstname,$lastname,$nickname,$sex,$birthday) {
     $result = $mysqli->real_query($query);
     if(!$result){
         printf("Errormessage: %s\n", $mysqli->error);
+    }else{
+        printf("%s\n", $mysqli->info);
     }
     echo $query;
     return $result;
