@@ -19,11 +19,16 @@ function newUser($firstname,$lastname,$nickname,$sex,$birthday) {
     if ($sex != ("male"||"female")){
         $sex = "";
     }
-    $query = "INSERT INTO user
+    $query = "INSERT INTO user 
     (id, firstname, lastname, nickname, sex, birthday)
     VALUES
-    ('$id','$firstname','$lastname','$nickname','$sex','$birthday')";
-    return $mysqli->query($query);
+    ('$id','$firstname','$lastname','$nickname','$sex','$birthday');";
+    $result = $mysqli->query($query);
+    if(!$result){
+        printf("Errormessage: %s\n", $mysqli->error);
+    }
+    echo $query;
+    return $result;
 }
 function getAllUsers(){
     global $mysqli;
@@ -123,5 +128,12 @@ if ($method == "newuser"){
     $id = filter_input(INPUT_GET, "id");
     $answer = deleteuser($id);
 }
-echo $answer;
+if($answer == true)
+   {
+   echo "Database query succsessful";
+   }
+else
+   {
+   echo $answer->error;
+   }
 ?>
