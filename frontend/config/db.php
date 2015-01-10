@@ -61,13 +61,13 @@ function updateUser($id,$firstname,$lastname,$nickname,$sex,$birthday) {
             . "lastname = '$lastname', "
             . "nickname = '$nickname', "
             . "sex = '$sex', "
-            . "birthday = $birthday "
-            . "WHERE id = '$id'";
-    echo $query;
+            . "birthday = '$birthday' "
+            . "WHERE id = '$id';";
     $result = $mysqli->query($query);
     if(!$result){
         printf("Errormessage: %s\n", $mysqli->error);
     }
+    echo $query;
     return $result;
 }
 function deleteUser($id) {
