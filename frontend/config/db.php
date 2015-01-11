@@ -20,7 +20,7 @@ function newUser($firstname,$lastname,$nickname,$sex,$birthday) {
         $sex = "";
     }
     $query = "INSERT INTO user 
-    (id, firstname, lastname, nickname, sex, birthday)
+    (id, firstname, lastname, nickname, birthday)
     VALUES
     ('$id','$firstname','$lastname','$nickname', '$birthday');";
     $result = $mysqli->query($query);
