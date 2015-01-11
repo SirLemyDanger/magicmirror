@@ -22,7 +22,7 @@ function newUser($firstname,$lastname,$nickname,$sex,$birthday) {
     $query = "INSERT INTO user 
     (id, firstname, lastname, nickname, sex, birthday)
     VALUES
-    ('$id','$firstname','$lastname','$nickname','$sex','$birthday');";
+    ('$id','$firstname','$lastname','$nickname', '$birthday');";
     $result = $mysqli->query($query);
     if(!$result){
         printf("Errormessage: %s\n", $mysqli->error);
