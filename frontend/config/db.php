@@ -26,6 +26,8 @@ function newUser($firstname,$lastname,$nickname,$sex,$birthday) {
     $result = $mysqli->query($query);
     if(!$result){
         printf("Errormessage: %s\n", $mysqli->error);
+    }else{
+        printf("%s\n", $mysqli->info);
     }
     echo $query;
     return $result;
