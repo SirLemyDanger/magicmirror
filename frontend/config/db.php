@@ -19,8 +19,11 @@ function newUser($firstname,$lastname,$nickname,$sex,$birthday) {
     if ($sex != ("male"||"female")){
         $sex = "";
     }
-    $query = "INSERT INTO user (id, firstname, lastname, nickname) VALUES ('$id', '$firstname', '$lastname', '$nickname');";
-    $result = $mysqli->query($query);
+    $statement = $mysqli->prepare("INSERT INTO user (id, firstname, lastname, nickname) VALUES (?,?,?,?)");
+    $statement->bind_param('ssss', $id, $firstname, $lastname, $nickname);
+    $statement->execute();
+    $statement->bind_result($result);
+    $statement->fetch();
     if(!$result){
         printf("Errormessage: %s\n", $mysqli->error);
     }else{
