@@ -19,10 +19,7 @@ function newUser($firstname,$lastname,$nickname,$sex,$birthday) {
     if ($sex != ("male"||"female")){
         $sex = "";
     }
-    $query = "INSERT INTO user 
-    (id, firstname, lastname, nickname, birthday)
-    VALUES
-    ('$id','$firstname','$lastname','$nickname', '$birthday');";
+    $query = "INSERT INTO 'user' ('id', 'firstname', 'lastname', 'nickname') VALUES ('$id','$firstname','$lastname','$nickname')";
     $result = $mysqli->query($query);
     if(!$result){
         printf("Errormessage: %s\n", $mysqli->error);
@@ -30,7 +27,7 @@ function newUser($firstname,$lastname,$nickname,$sex,$birthday) {
         printf("%s\n", $mysqli->info);
     }
     echo $query;
-    return $result;
+    return "{\"id\" : \"$id\"}";
 }
 function getAllUsers(){
     global $mysqli;
