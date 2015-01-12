@@ -30,9 +30,9 @@ jQuery( document ).ready(function() {
 		$( "#lastname" ).attr( "value", data[0].lastname ).removeAttr("disabled");
 		$( "#nickname" ).attr( "value", data[0].nickname ).removeAttr("disabled");
 		if (data[0].sex == "male"){
-			$( "#male" ).attr( checked, "checked");
+			$( "#male" ).attr( "checked", "checked");
 		}else if (data[0].sex == "female"){
-			$( "#female" ).attr( checked, "checked");
+			$( "#female" ).attr( "checked", "checked");
 		//}else if (data[0].sex == other){
 		//	$( "#other" ).attr( checked, "checked");
 		}
