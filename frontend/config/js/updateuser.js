@@ -34,7 +34,7 @@ jQuery( document ).ready(function() {
 		}else if (data[0].sex == "female"){
 			$( "#female" ).attr( "checked", "checked");
 		//}else if (data[0].sex == other){
-		//	$( "#other" ).attr( checked, "checked");
+		//	$( "#other" ).attr( "checked", "checked");
 		}
 		$( "#sex" ).removeAttr("disabled");
 		$( "#birthday" ).attr( "value", data[0].birthday ).removeAttr("disabled");
