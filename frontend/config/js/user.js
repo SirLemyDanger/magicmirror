@@ -9,10 +9,10 @@ getUserData = $.ajax( {
 jQuery( document ).ready(function() {
 	getUserData.done(function(data){
 		for(var i = 0, l = data.length; i < l; ++i){
-			var userstring = "<tr id="+user.id+"\">\n"+
-								"<td class=\"firstname\">"+user.firstname+"</td>\n"+
-								"<td class=\"lastname\">"+user.lastname+"</td>\n"+
-								"<td class=\"nickname\">"+user.nickname+"</td>\n"+
+			var userstring = "<tr id="+data[i].id+"\">\n"+
+								"<td class=\"firstname\">"+data[i].firstname+"</td>\n"+
+								"<td class=\"lastname\">"+data[i].lastname+"</td>\n"+
+								"<td class=\"nickname\">"+data[i].nickname+"</td>\n"+
 							"</tr>";
 			$( "#userlist" ).append( userstring );
 		}
