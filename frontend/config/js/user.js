@@ -8,7 +8,6 @@ getUserData = $.ajax( {
 });
 jQuery( document ).ready(function() {
 	getUserData.done(function(data){
-		data = [{"firstname":"hi","lastname":"hi","nickname":"hi"}];
 		var userstring = "<tr id="+data[0].id+"\">\n"+
 							"<td class=\"firstname\">"+data[0].firstname+"</td>\n"+
 							"<td class=\"lastname\">"+data[0].lastname+"</td>\n"+
