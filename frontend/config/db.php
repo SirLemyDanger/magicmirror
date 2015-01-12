@@ -78,14 +78,11 @@ function deleteUser($id) {
     $query = "DELETE FROM user WHERE id = '$id'";
     return $mysqli->query($query);    
 }
-//$mysqli->real_connect ("localhost",
-//"mirror", "raspberry", "magicmirror")
-//or die ("keine Verbindung zur Datenbank möglich.");
 if (!$mysqli) {
     die('mysqli_init failed');
 }
 
-if (!$mysqli->options(MYSQLI_INIT_COMMAND, 'SET AUTOCOMMIT = 0')) {
+if (!$mysqli->options(MYSQLI_INIT_COMMAND, 'SET AUTOCOMMIT = 1')) {
     die('Setting MYSQLI_INIT_COMMAND failed');
 }
 
