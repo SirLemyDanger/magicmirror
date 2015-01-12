@@ -74,7 +74,7 @@ jQuery( document ).ready(function() {
                 
 		var stop = false;
 		faceDataRequest = $.ajax( {
-			url: "faceRec.php",
+			url: "../backend/faceRec.php",
 			async: true,
 			type: "POST",
                         //chace: false,
@@ -206,7 +206,7 @@ jQuery( document ).ready(function() {
 	{
             var getBirthdays = $.ajax({
                 dataType: "json",
-                url: "cardDav.php",
+                url: "../backend/cardDav.php",
                 async: true,
                 //cache: false,
                 data: {"method":"cardDAV"},
