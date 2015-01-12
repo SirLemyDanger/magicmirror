@@ -13,8 +13,8 @@ jQuery( document ).ready(function() {
 								"<td class=\"firstname\">"+data[i].firstname+"</td>\n"+
 								"<td class=\"lastname\">"+data[i].lastname+"</td>\n"+
 								"<td class=\"nickname\">"+data[i].nickname+"</td>\n"+
-								"<td class=\"edit\"><a href=\"updateuser.html?id="+data[i].id+">edit</a>"+
-								"<td class=\"delete\"><a href=\"deleteuser.html?id="+data[i].id+">delete</a>"+								
+								"<td class=\"edit\"><a href=\"updateuser.html?id="+data[i].id+"\">edit</a>"+
+								"<td class=\"delete\"><a href=\"deleteuser.html?id="+data[i].id+"\">delete</a>"+								
 							"</tr>";
 			$( "#userlist" ).append( userstring );
 		}
