@@ -1,14 +1,5 @@
 <?php
-//// terminal -> GET
-//foreach ($argv as $arg) {
-//    $e=explode("=",$arg);
-//    if(count($e)==2)
-//        $_GET[$e[0]]=$e[1];
-//    else   
-//        $_GET[$e[0]]=0;
-//}
-
-$mysqli = mysqli_init();
+require_once 'db_connection';
 
 function newUser($firstname,$lastname,$nickname,$sex,$birthday) {
     global $mysqli;
@@ -77,26 +68,7 @@ function deleteUser($id) {
     $query = "DELETE FROM user WHERE id = '$id'";
     return $mysqli->query($query);    
 }
-if (!$mysqli) {
-    die('mysqli_init failed');
-}
 
-if (!$mysqli->options(MYSQLI_INIT_COMMAND, 'SET AUTOCOMMIT = 1')) {
-    die('Setting MYSQLI_INIT_COMMAND failed');
-}
-
-if (!$mysqli->options(MYSQLI_OPT_CONNECT_TIMEOUT, 5)) {
-    die('Setting MYSQLI_OPT_CONNECT_TIMEOUT failed');
-}
-
-if (!$mysqli->real_connect ("localhost", "mirror", "raspberry", "magicmirror")) {
-    die('Connect Error (' . mysqli_connect_errno() . ') '
-            . mysqli_connect_error());
-}
-/* change character set to utf8 */
-if (!$mysqli->set_charset("utf8")) {
-    printf("Error loading character set utf8: %s\n", $mysqli->error);
-}
 //} else {
 //    printf("Current character set: %s\n", $mysqli->character_set_name());
 //}
@@ -104,28 +76,22 @@ if (!$mysqli->set_charset("utf8")) {
 //echo 'Success... ' . $mysqli->host_info . "\n";
 
 $method = filter_input(INPUT_GET, "method");
+$id = $mysqli->real_escape_string(filter_input(INPUT_GET, "id"));
+$firstname = $mysqli->real_escape_string(filter_input(INPUT_GET, "firstname"));
+$lastname = $mysqli->real_escape_string(filter_input(INPUT_GET, "lastname"));
+$nickname = $mysqli->real_escape_string(filter_input(INPUT_GET, "nickname"));
+$sex = $mysqli->real_escape_string(filter_input(INPUT_GET, "sex"));
+$birthday = $mysqli->real_escape_string(filter_input(INPUT_GET, "birthday"));
 if ($method == "newuser"){
-    $firstname = filter_input(INPUT_GET, "firstname");
-    $lastname = filter_input(INPUT_GET, "lastname");
-    $nickname = filter_input(INPUT_GET, "nickname");
-    $sex = filter_input(INPUT_GET, "sex");
-    $birthday = filter_input(INPUT_GET, "birthday");
     $answer = newUser($firstname,$lastname,$nickname,$sex,$birthday);
 }elseif ($method == "getallusers"){
     $answer = getAllUsers();
 }elseif ($method == "getuserdata"){
-    $id = filter_input(INPUT_GET, "id");
     $answer = getUserData($id);
 }elseif ($method == "updateuser"){
-    $id = filter_input(INPUT_GET, "id");
-    $firstname = filter_input(INPUT_GET, "firstname");
-    $lastname = filter_input(INPUT_GET, "lastname");
-    $nickname = filter_input(INPUT_GET, "nickname");
-    $sex = filter_input(INPUT_GET, "sex");
-    $birthday = filter_input(INPUT_GET, "birthday");
+    
     $answer = updateUser($id,$firstname,$lastname,$nickname,$sex,$birthday);
 }elseif ($method == "deleteuser"){
-    $id = filter_input(INPUT_GET, "id");
     $answer = deleteuser($id);
 }
 echo $answer;

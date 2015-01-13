@@ -52,3 +52,5 @@ docs/_build/
 
 # PyBuilder
 target/
+
+frontend/config/db_connection.php

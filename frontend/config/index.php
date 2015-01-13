@@ -10,7 +10,7 @@
 			<table>
 				<tr>
 					<td><a href="newuser.html">New User</a></td>
-					<td>Edit User</td>
+					<td><a href="user.html">Edit User</a></td>
 				</tr>
 				<tr>
 					<td>Upload Fotos</td>
@@ -19,7 +19,6 @@
 			</table>
 				Menschen, Tiere, Sensationen!<br>
 				Geräteeinstellungen: WLAN, Standort<br>
-				Nutzer: Name, Geschlecht, Fotos<br>
 			
         </div>
     </body>
