@@ -15,5 +15,6 @@ if(!$result){
     $row = $result->fetch_array(MYSQLI_ASSOC);
     header("Content-type: {$row['imgtype']}");
     echo $row['imgdata'];
+    echo "test";
 }
 ?>
