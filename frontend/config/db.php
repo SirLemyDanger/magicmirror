@@ -146,7 +146,7 @@ function uploadNewPhoto($userid) {
     if (true != $check_result = checkFile($mime)){
         return $check_result;
     }
-    if(is_uploaded_file($_FILES['image']['tmp_name'])) {
+    if(is_uploaded_file($_FILES['upfile']['tmp_name'])) {
             $image = $_FILES['upfile']['tmp_name'];
             $data = $mysqli->real_escape_string(file_get_contents($image));
             // delete temp file ??
