@@ -82,7 +82,7 @@ function getUserImageIds($userid){
     }
     return json_encode($data);
 }
-function checkFile(&$ext) {
+function checkFile(&$mime) {
     try {   
         // Undefined | Multiple Files | $_FILES Corruption Attack
         // If this request falls under any of them, treat it invalid.
@@ -111,6 +111,7 @@ function checkFile(&$ext) {
         // DO NOT TRUST $_FILES['upfile']['mime'] VALUE !!
         // Check MIME Type by yourself.
         $finfo = new finfo(FILEINFO_MIME_TYPE);
+        $mime = $finfo->file($_FILES['upfile']['tmp_name']);
         if (false === $ext = array_search(
             $finfo->file($_FILES['upfile']['tmp_name']),
             array(
@@ -155,8 +156,9 @@ function uploadNewPhoto($userid) {
             if(!$result){
                 printf("Errormessage: %s\n", $mysqli->error);
             }
+            return true;
     }
-    return true;
+    return false;
 }
 
 $method = filter_input(INPUT_POST, "method");
