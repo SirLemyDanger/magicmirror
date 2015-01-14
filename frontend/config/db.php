@@ -149,9 +149,14 @@ function uploadNewPhoto($userid) {
     if(is_uploaded_file($_FILES['image']['tmp_name'])) {
             $image = $_FILES['upfile']['tmp_name'];
             $data = $mysqli->real_escape_string(file_get_contents($image));
-            $mysqli->query("INSERT INTO images (imgdata, imgtype, userid) VALUES ('$data', '$mime', '$userid')");
             // delete temp file ??
+            $query = "INSERT INTO images (imgdata, imgtype, userid) VALUES ('$data', '$mime', '$userid')";
+            $result = $mysqli->query($query);
+            if(!$result){
+                printf("Errormessage: %s\n", $mysqli->error);
+            }
     }
+    return true;
 }
 
 $method = filter_input(INPUT_GET, "method");
