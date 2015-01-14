@@ -159,14 +159,14 @@ function uploadNewPhoto($userid) {
     return true;
 }
 
-$method = filter_input(INPUT_GET, "method");
+$method = filter_input(INPUT_POST, "method");
 if ($method){
-    $id = $mysqli->real_escape_string(filter_input(INPUT_GET, "id"));
-    $firstname = $mysqli->real_escape_string(filter_input(INPUT_GET, "firstname"));
-    $lastname = $mysqli->real_escape_string(filter_input(INPUT_GET, "lastname"));
-    $nickname = $mysqli->real_escape_string(filter_input(INPUT_GET, "nickname"));
-    $sex = $mysqli->real_escape_string(filter_input(INPUT_GET, "sex"));
-    $birthday = $mysqli->real_escape_string(filter_input(INPUT_GET, "birthday"));
+    $id = $mysqli->real_escape_string(filter_input(INPUT_POST, "id"));
+    $firstname = $mysqli->real_escape_string(filter_input(INPUT_POST, "firstname"));
+    $lastname = $mysqli->real_escape_string(filter_input(INPUT_POST, "lastname"));
+    $nickname = $mysqli->real_escape_string(filter_input(INPUT_POST, "nickname"));
+    $sex = $mysqli->real_escape_string(filter_input(INPUT_POST, "sex"));
+    $birthday = $mysqli->real_escape_string(filter_input(INPUT_POST, "birthday"));
     if ($method == "newuser"){
         $answer = newUser($firstname,$lastname,$nickname,$sex,$birthday);
     }elseif ($method == "getallusers"){
