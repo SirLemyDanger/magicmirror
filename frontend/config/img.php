@@ -1,5 +1,5 @@
 <?php
-require_once 'db_connection';
+require_once(dirname(dirname(__FILE__)) .'/db_connection.php');
 
 $id = $mysqli->real_escape_string(filter_input(INPUT_GET, "id"));
 $query= "SELECT imgdata,imgtype FROM images WHERE id='$id'";
