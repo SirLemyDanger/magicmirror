@@ -4,11 +4,12 @@
      <title>Magic Mirror Config</title>
            <link rel="stylesheet" type="text/css" href="css/main.css">
            <script src="../js/jquery.js"></script>
+		   <script src="js/main.js"></script>	
 		   <script src="js/updateuser.js"></script>	
     </head>
     <body>
         <div id="body">
-			<form id="updateuser" action="db.php" method="get">
+			<form id="updateuser" action="db.php" method="post">
 				<input type="hidden" name="method" value="updateuser">
 				<input type="hidden" id="id" name="id">
 				<label for="name">Name</label>  

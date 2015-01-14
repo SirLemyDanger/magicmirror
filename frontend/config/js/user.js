@@ -2,7 +2,7 @@
 getUserData = $.ajax( {
 	url: "db.php",
 	async: true,
-	type: "GET",
+	type: "POST",
 	dataType: "json",
 	data: {"method":"getallusers"}
 });
