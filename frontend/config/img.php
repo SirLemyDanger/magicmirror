@@ -2,7 +2,7 @@
 require_once 'db_connection';
 
 $id = $mysqli->real_escape_string(filter_input(INPUT_GET, "id"));
-$query= "SELECT imgdata,imgtype FROM imagess WHERE id='$id'";
+$query= "SELECT imgdata,imgtype FROM images WHERE id='$id'";
 $result = $mysqli->query($query);
 if(!$result){
     $im = ImageCreate (250,50);
@@ -15,6 +15,5 @@ if(!$result){
     $row = $result->fetch_array(MYSQLI_ASSOC);
     header("Content-type: {$row['imgtype']}");
     echo $row['imgdata'];
-    echo "test";
 }
 ?>

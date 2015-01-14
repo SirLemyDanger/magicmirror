@@ -69,6 +69,90 @@ function deleteUser($id) {
     $query = "DELETE FROM user WHERE id = '$id'";
     return $mysqli->query($query);    
 }
+function getUserImageIds($userid){
+    global $mysqli;
+    $query = "SELECT id FROM images WHERE userid = '$userid'";
+    $result = $mysqli->query($query);
+    if(!$result){
+        printf("Errormessage: %s\n", $mysqli->error);
+    }
+    $data = array();
+    while ($dataline = $result->fetch_array(MYSQLI_ASSOC)){
+        array_push($data, $dataline);
+    }
+    return json_encode($data);
+}
+function checkFile(&$ext) {
+    try {   
+        // Undefined | Multiple Files | $_FILES Corruption Attack
+        // If this request falls under any of them, treat it invalid.
+        if (
+            !isset($_FILES['upfile']['error']) ||
+            is_array($_FILES['upfile']['error'])
+        ) {
+            throw new RuntimeException('Invalid parameters.');
+        }
+        // Check $_FILES['upfile']['error'] value.
+        switch ($_FILES['upfile']['error']) {
+            case UPLOAD_ERR_OK:
+                break;
+            case UPLOAD_ERR_NO_FILE:
+                throw new RuntimeException('No file sent.');
+            case UPLOAD_ERR_INI_SIZE:
+            case UPLOAD_ERR_FORM_SIZE:
+                throw new RuntimeException('Exceeded filesize limit.');
+            default:
+                throw new RuntimeException('Unknown errors.');
+        }
+        // You should also check filesize here.
+        if ($_FILES['upfile']['size'] > 8388608) {
+            throw new RuntimeException('Exceeded filesize limit.');
+        }
+        // DO NOT TRUST $_FILES['upfile']['mime'] VALUE !!
+        // Check MIME Type by yourself.
+        $finfo = new finfo(FILEINFO_MIME_TYPE);
+        if (false === $ext = array_search(
+            $finfo->file($_FILES['upfile']['tmp_name']),
+            array(
+                'jpg' => 'image/jpeg',
+                'png' => 'image/png',
+                'gif' => 'image/gif',
+            ),
+            true
+        )) {
+            throw new RuntimeException('Invalid file format.');
+        }
+        // You should name it uniquely.
+        // DO NOT USE $_FILES['upfile']['name'] WITHOUT ANY VALIDATION !!
+        // On this example, obtain safe unique name from its binary data.
+    //    if (!move_uploaded_file(
+    //        $_FILES['upfile']['tmp_name'],
+    //        sprintf('./uploads/%s.%s',
+    //            sha1_file($_FILES['upfile']['tmp_name']),
+    //            $ext
+    //        )
+    //    )) {
+    //        throw new RuntimeException('Failed to move uploaded file.');
+    //    }
+
+        return true;
+
+        } catch (RuntimeException $e) {
+        return $e->getMessage();
+    }   
+}
+function uploadNewPhoto($userid) {
+    global $mysqli;
+    if (true != $check_result = checkFile($mime)){
+        return $check_result;
+    }
+    if(is_uploaded_file($_FILES['image']['tmp_name'])) {
+            $image = $_FILES['upfile']['tmp_name'];
+            $data = $mysqli->real_escape_string(file_get_contents($image));
+            $mysqli->query("INSERT INTO images (imgdata, imgtype, userid) VALUES ('$data', '$mime', '$userid')");
+            // delete temp file ??
+    }
+}
 
 $method = filter_input(INPUT_GET, "method");
 if ($method){
@@ -88,6 +172,10 @@ if ($method){
         $answer = updateUser($id,$firstname,$lastname,$nickname,$sex,$birthday);
     }elseif ($method == "deleteuser"){
         $answer = deleteuser($id);
+    }elseif ($method == "getuserimageids"){
+        $answer = getUserImageIds($id);
+    }elseif ($method == "newphoto"){
+        $answer = uploadNewPhoto($id);
     }
     echo $answer;
 }
