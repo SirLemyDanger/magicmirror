@@ -1,5 +1,5 @@
 <?php
-require_once('db_connection.php');
+require_once('./db_connection.php');
 
 function newUser($firstname,$lastname,$nickname,$sex,$birthday) {
     global $mysqli;
