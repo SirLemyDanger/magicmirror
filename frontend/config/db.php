@@ -13,6 +13,7 @@ function newUser($firstname,$lastname,$nickname,$sex,$birthday) {
     $statement = $mysqli->prepare("INSERT INTO user (id, firstname, lastname, nickname, sex, birthday) VALUES (?,?,?,?,?,?)");
     $statement->bind_param('ssssss', $id, $firstname, $lastname, $nickname, $sex, $birthday);
     $statement->execute();
+    $result = "";
     $statement->bind_result($result);
     $statement->fetch();
     if(!$result){
@@ -69,29 +70,24 @@ function deleteUser($id) {
     return $mysqli->query($query);    
 }
 
-//} else {
-//    printf("Current character set: %s\n", $mysqli->character_set_name());
-//}
-
-//echo 'Success... ' . $mysqli->host_info . "\n";
-
 $method = filter_input(INPUT_GET, "method");
-$id = $mysqli->real_escape_string(filter_input(INPUT_GET, "id"));
-$firstname = $mysqli->real_escape_string(filter_input(INPUT_GET, "firstname"));
-$lastname = $mysqli->real_escape_string(filter_input(INPUT_GET, "lastname"));
-$nickname = $mysqli->real_escape_string(filter_input(INPUT_GET, "nickname"));
-$sex = $mysqli->real_escape_string(filter_input(INPUT_GET, "sex"));
-$birthday = $mysqli->real_escape_string(filter_input(INPUT_GET, "birthday"));
-if ($method == "newuser"){
-    $answer = newUser($firstname,$lastname,$nickname,$sex,$birthday);
-}elseif ($method == "getallusers"){
-    $answer = getAllUsers();
-}elseif ($method == "getuserdata"){
-    $answer = getUserData($id);
-}elseif ($method == "updateuser"){
-    
-    $answer = updateUser($id,$firstname,$lastname,$nickname,$sex,$birthday);
-}elseif ($method == "deleteuser"){
-    $answer = deleteuser($id);
+if ($method){
+    $id = $mysqli->real_escape_string(filter_input(INPUT_GET, "id"));
+    $firstname = $mysqli->real_escape_string(filter_input(INPUT_GET, "firstname"));
+    $lastname = $mysqli->real_escape_string(filter_input(INPUT_GET, "lastname"));
+    $nickname = $mysqli->real_escape_string(filter_input(INPUT_GET, "nickname"));
+    $sex = $mysqli->real_escape_string(filter_input(INPUT_GET, "sex"));
+    $birthday = $mysqli->real_escape_string(filter_input(INPUT_GET, "birthday"));
+    if ($method == "newuser"){
+        $answer = newUser($firstname,$lastname,$nickname,$sex,$birthday);
+    }elseif ($method == "getallusers"){
+        $answer = getAllUsers();
+    }elseif ($method == "getuserdata"){
+        $answer = getUserData($id);
+    }elseif ($method == "updateuser"){    
+        $answer = updateUser($id,$firstname,$lastname,$nickname,$sex,$birthday);
+    }elseif ($method == "deleteuser"){
+        $answer = deleteuser($id);
+    }
+    echo $answer;
 }
-echo $answer;
