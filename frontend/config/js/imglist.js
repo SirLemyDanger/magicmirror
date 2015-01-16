@@ -19,7 +19,7 @@ jQuery( document ).ready(function() {
 	});
 	getUserImageIds.done(function(data){
 		for(var i = 0, l = data.length; i < l; ++i){
-			$( "#body" ).append( '<img src="img.php?id='+ data[i].id +'">' );
+			$( "#body" ).append( '<img class="photolist" src="img.php?id='+ data[i].id +'">' );
 		}
 	});
 });
