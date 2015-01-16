@@ -14,7 +14,9 @@ jQuery( document ).ready(function() {
 								"<td class=\"lastname\">"+data[i].lastname+"</td>\n"+
 								"<td class=\"nickname\">"+data[i].nickname+"</td>\n"+
 								"<td class=\"edit\"><a href=\"updateuser.html?id="+data[i].id+"\">edit</a>"+
-								"<td class=\"delete\"><a href=\"deleteuser.html?id="+data[i].id+"\">delete</a>"+								
+								"<td class=\"delete\"><a href=\"deleteuser.html?id="+data[i].id+"\">delete</a>"+
+								"<td class=\"photo\"><a href=\"imglist.php?id="+data[i].id+"\">show photos</a>"+								
+								"<td class=\"photo\"><a href=\"image_upload.html?id="+data[i].id+"\">add photo</a>"+								
 							"</tr>";
 			$( "#userlist" ).append( userstring );
 		}

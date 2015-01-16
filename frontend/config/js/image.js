@@ -14,6 +14,18 @@ function checkSize(){
 	return true;
 }
 var id = $.getUrlVar("id");
+
+getUserData = $.ajax( {
+	url: "db.php",
+	async: true,
+	type: "POST",
+	dataType: "json",
+	data: {"method":"getuserdata", "id": id }
+});
+
 jQuery( document ).ready(function() {
+	getUserData.done(function(data){
+		$( "#name" ).html( "Add photo for "+data[0].nickname+" ("+data[0].firstname+" "+data[0].lastname+")" );
+	});
 	$( "#newphoto" ).append( '<input type="hidden" name="id" value="'+ id +'">' );
 });
