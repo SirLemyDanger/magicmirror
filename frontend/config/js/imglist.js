@@ -12,6 +12,7 @@ getUserData = $.ajax( {
 	type: "POST",
 	dataType: "json",
 	data: {"method":"getuserdata", "id": id }
+});
 jQuery( document ).ready(function() {
 	getUserData.done(function(data){
 		$( "#name" ).html( "Photos for "+data[0].nickname+" ("+data[0].firstname+" "+data[0].lastname+")" );
