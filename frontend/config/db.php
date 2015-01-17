@@ -160,6 +160,15 @@ function uploadNewPhoto($userid) {
     }
     return false;
 }
+function updateEyes($fotoid,$lefteye_x,$lefteye_y,$righteye_x,$righteye_y){
+    $query = "UPDATE images SET lefteye_x = '$lefteye_x', lefteye_y = '$lefteye_y', righteye_x = '$righteye_x', righteye_y = '$righteye_y' WHERE id = '$fotoid';";
+    $result = $mysqli->real_query($query);
+    if(!$result){
+        printf("Errormessage: %s\n", $mysqli->error);
+        return false;
+    }
+    return true;
+}
 
 $method = filter_input(INPUT_POST, "method");
 if ($method){
@@ -169,6 +178,10 @@ if ($method){
     $nickname = $mysqli->real_escape_string(filter_input(INPUT_POST, "nickname"));
     $sex = $mysqli->real_escape_string(filter_input(INPUT_POST, "sex"));
     $birthday = $mysqli->real_escape_string(filter_input(INPUT_POST, "birthday"));
+    $lefteye_x = $mysqli->real_escape_string(filter_input(INPUT_POST, "lefteye_x"));
+    $lefteye_y = $mysqli->real_escape_string(filter_input(INPUT_POST, "lefteye_y"));
+    $righteye_x = $mysqli->real_escape_string(filter_input(INPUT_POST, "righteye_x"));
+    $righteye_y = $mysqli->real_escape_string(filter_input(INPUT_POST, "righteye_y"));
     if ($method == "newuser"){
         $answer = newUser($firstname,$lastname,$nickname,$sex,$birthday);
     }elseif ($method == "getallusers"){
@@ -183,6 +196,8 @@ if ($method){
         $answer = getUserImageIds($id);
     }elseif ($method == "newphoto"){
         $answer = uploadNewPhoto($id);
+    }elseif ($method == "updateeyes"){
+        $answer = updateEyes($id,$lefteye_x,$lefteye_y,$righteye_x,$righteye_y);
     }
     echo $answer;
 }
