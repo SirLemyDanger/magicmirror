@@ -152,7 +152,7 @@ function uploadNewPhoto($userid) {
             if(!$result){
                 printf("Errormessage: %s\n", $mysqli->error);
             }            
-            return "[{\"id\":\"$mysqli->insert_id\"}]";
+            return "[{\"id\":\"". $mysqli->insert_id ."\"}]";
     }
     return false;
 }
