@@ -31,11 +31,12 @@ jQuery( document ).ready(function() {
 	//Callback handler for form submit event
 	$("#newphoto").submit(function(e)
 	{
+		e.preventDefault(); //Prevent Default action.
 		if (checkSize('upfile')){			
 			var formObj = $(this);
 			var formURL = formObj.attr("action");
 			var formData = new FormData(this);
-			$.ajax({
+			var sendForm = $.ajax({
 				url: formURL,
 				type: 'POST',
 				data:  formData,
@@ -43,18 +44,16 @@ jQuery( document ).ready(function() {
 				contentType: false,
 				cache: false,
 				processData:false,
-			success: function(data, textStatus, jqXHR)
-			{
-				window.location = "eyes.html?id="+ data[0].id;
-			},
-			 error: function(jqXHR, textStatus, errorThrown)
-			 {
-			 }         
-			});
-			e.preventDefault(); //Prevent Default action.
+				success: function(data, textStatus, jqXHR)
+				{
+					window.location = "eyes.html?id="+ data[0].id;
+				},
+				error: function(jqXHR, textStatus, errorThrown)
+				{
+				}         
+			});			
 			e.unbind();
-		}else{
-			e.preventDefault(); //Prevent Default action.
+			//sendForm.success
 		}
 	});
 	$("#multiform").submit(); //Submit the form
