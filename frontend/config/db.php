@@ -151,10 +151,11 @@ function uploadNewPhoto($userid) {
             $result = $mysqli->query($query);
             if(!$result){
                 printf("Errormessage: %s\n", $mysqli->error);
-            }            
-            return "[{\"id\":\"". $mysqli->insert_id ."\"}]";
+            }else{
+                return "[{\"id\": $mysqli->insert_id }]";
+            }
     }
-    return false;
+    return "bla";
 }
 function updateEyes($fotoid,$lefteye_x,$lefteye_y,$righteye_x,$righteye_y){
     $query = "UPDATE images SET lefteye_x = '$lefteye_x', lefteye_y = '$lefteye_y', righteye_x = '$righteye_x', righteye_y = '$righteye_y' WHERE id = '$fotoid';";
