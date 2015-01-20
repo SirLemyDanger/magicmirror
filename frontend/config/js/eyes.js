@@ -1,6 +1,32 @@
 var id = $.getUrlVar("id");
 var lefteye = false;
 var righteye = false;
+function checkSendButton(){
+	if ( $("#le_x").attr("value") != "" && $("#le_y").attr("value") != "" && $("#re_x").attr("value") != "" && $("#re_y").attr("value") != "" && typeof id != 'undefined'){
+			$("#submit").removeAttr( "disabled" );
+	} else {
+		$("#submit").attr( "disabled","disabled" );
+		return false;
+	}
+	return true;
+};
+	
+function sendeyes(){
+	if (checkSendButton()){
+		var le_x = $("#le_x").attr("value") / $("#photo").width();
+		var le_y = $("#le_y").attr("value") / $("#photo").height();
+		var re_x = $("#re_x").attr("value") / $("#photo").width();
+		var re_y = $("#re_y").attr("value") / $("#photo").height();
+		sendeyes = $.ajax( {
+		url: "db.php",
+		async: true,
+		type: "POST",
+		dataType: "json",
+		data: {"method":"updateeyes", "id": id, "lefteye_x":le_x,"lefteye_y":le_y,"righteye_x":re_x,"righteye_y":re_y}
+		});
+	}
+};
+
 jQuery( document ).ready(function() {
 	if (typeof id != 'undefined'){
 		$('#photo').attr("src", "img.php?id=" + id);
@@ -22,5 +48,6 @@ jQuery( document ).ready(function() {
 		}
 		lefteye = false;
 		righteye = false;
+		checkSendButton();
 	});
 });
