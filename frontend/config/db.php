@@ -58,11 +58,8 @@ function updateUser($id,$firstname,$lastname,$nickname,$sex,$birthday) {
     $result = $mysqli->real_query($query);
     if(!$result){
         printf("Errormessage: %s\n", $mysqli->error);
-    }else{
-        printf("%s\n", $mysqli->info);
     }
-    echo $query;
-    return $result;
+    return "[{\"id\":\"$mysqli->insert_id\"}]";
 }
 function deleteUser($id) {
     global $mysqli;
@@ -150,13 +147,12 @@ function uploadNewPhoto($userid) {
     if(is_uploaded_file($_FILES['upfile']['tmp_name'])) {
             $image = $_FILES['upfile']['tmp_name'];
             $data = $mysqli->real_escape_string(file_get_contents($image));
-            // delete temp file ??
             $query = "INSERT INTO images (imgdata, imgtype, userid) VALUES ('$data', '$mime', '$userid')";
             $result = $mysqli->query($query);
             if(!$result){
                 printf("Errormessage: %s\n", $mysqli->error);
-            }
-            return true;
+            }            
+            return "[{\"id\":\"$mysqli->insert_id\"}]";
     }
     return false;
 }
@@ -167,7 +163,7 @@ function updateEyes($fotoid,$lefteye_x,$lefteye_y,$righteye_x,$righteye_y){
         printf("Errormessage: %s\n", $mysqli->error);
         return false;
     }
-    return true;
+    return "[{\"id\":\"$mysqli->insert_id\"}]";
 }
 
 $method = filter_input(INPUT_POST, "method");
