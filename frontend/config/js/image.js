@@ -54,7 +54,7 @@ jQuery( document ).ready(function() {
 				{
 				}         
 			});			
-			e.unbind();
+			this.off();
 			//sendForm.success
 		}
 	});
