@@ -1,11 +1,12 @@
 function checkSize(){
 	if (typeof FileReader !== "undefined") {
 		var size = document.getElementById('upfile').files[0].size;
-		if (!input.files[0]) 
-		{
-			alert("Please select a file before clicking 'Upload'");
-			return false;
-		}else if (size > 8388608)
+		// if (!input.files[0]) 
+		// {
+			// alert("Please select a file before clicking 'Upload'");
+			// return false;
+		// }else 
+		if (size > 8388608)
 		{
 			alert("The file must be less than 8MB");
 			return false;
