@@ -41,6 +41,7 @@ jQuery( document ).ready(function() {
 				url: formURL,
 				type: 'POST',
 				data:  formData,
+				dataType: "json", 
 				mimeType:"multipart/form-data",
 				contentType: false,
 				cache: false,
@@ -54,7 +55,7 @@ jQuery( document ).ready(function() {
 				{
 				}         
 			});			
-			this.off();
+			//this.off();
 			//sendForm.success
 		}
 	});
