@@ -22,8 +22,9 @@ jQuery( document ).ready(function() {
 			$( "#body" ).append( '<img class="photolist" src="img.php?id='+ data[i].id +'" alt="photoid: '+ data[i].id +'">' );
 		}
 	});
-	$('.photolist').click(function(e) {
+	$('img.photolist').click(function(e) {
      //alert the clicked position.
-     alert(e.offsetX + ',' + e.offsetY);
+     //alert(e.offsetX + ',' + e.offsetY);
+	 alert("hi");
 });
 });
