@@ -45,7 +45,7 @@ jQuery( document ).ready(function() {
 				processData:false,
 			success: function(data, textStatus, jqXHR)
 			{
-				//window.location = "eyes.html?id=";
+				window.location = "eyes.html?id="+ data[0].id;
 			},
 			 error: function(jqXHR, textStatus, errorThrown)
 			 {
