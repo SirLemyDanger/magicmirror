@@ -41,7 +41,7 @@ jQuery( document ).ready(function() {
 				url: formURL,
 				type: 'POST',
 				data:  formData,
-				dataType: "json", 
+				//dataType: "text", 
 				mimeType:"multipart/form-data",
 				contentType: false,
 				cache: false,
