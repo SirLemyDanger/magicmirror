@@ -196,6 +196,8 @@ if ($method){
     }elseif ($method == "updateeyes"){
         $answer = updateEyes($id,$lefteye_x,$lefteye_y,$righteye_x,$righteye_y);
     }
-    return $answer;
+    echo $answer;
+    return;
 }
-return "no method";
+echo "no method";
+return;
