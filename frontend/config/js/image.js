@@ -58,6 +58,6 @@ jQuery( document ).ready(function() {
 			// //this.off();
 			// //sendForm.success
 		// }
-	});
+	//});
 	$("#multiform").submit(); //Submit the form
 });
