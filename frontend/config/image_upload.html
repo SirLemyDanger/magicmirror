@@ -10,7 +10,7 @@
     <body>
         <div id="body">
 			<div id="name"></div>
-			<form enctype="multipart/form-data" method="POST" id="newphoto" name="newphoto" action="db.php" onsubmit="return checkSize()">			
+			<form enctype="multipart/form-data" method="POST" id="newphoto" name="newphoto" action="db.php" onsubmit="return checkSize();">			
 				<input type="hidden" name="method" value="newphoto">
 				<!-- Der Name des Input Felds bestimmt den Namen im $_FILES Array -->
 				Upload this file: <input id="upfile" name="upfile" type="file" > (max. size: 8MB)
