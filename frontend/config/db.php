@@ -166,7 +166,7 @@ function updateEyes($fotoid,$lefteye_x,$lefteye_y,$righteye_x,$righteye_y){
     }
     return "[{\"id\":\"$mysqli->insert_id\"}]";
 }
-
+$answer = "Error. No function executed";
 $method = filter_input(INPUT_POST, "method");
 if ($method){
     $id = $mysqli->real_escape_string(filter_input(INPUT_POST, "id"));
