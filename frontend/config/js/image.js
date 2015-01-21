@@ -59,5 +59,5 @@ jQuery( document ).ready(function() {
 			// //sendForm.success
 		// }
 	//});
-	$("#multiform").submit(); //Submit the form
+	//$("#multiform").submit(); //Submit the form
 });
