@@ -1,5 +1,6 @@
 <?php
 require_once(dirname(dirname(__FILE__)) .'/db_connection.php');
+header('Content-Type: text/plain; charset=utf-8');
 
 function newUser($firstname,$lastname,$nickname,$sex,$birthday) {
     global $mysqli;
@@ -155,7 +156,7 @@ function uploadNewPhoto($userid) {
                 return "[{\"id\": $mysqli->insert_id }]";
             }
     }else{
-        return "is uploaded file is false. File:" . $_FILES['upfile']['tmp_name'];
+        return "is uploaded file is false. File:" . $_FILES['upfile']['tmp_name'] . $_FILES['error'] . "var dump " . var_dump($FILES);
     }
     return "ok";
 }
