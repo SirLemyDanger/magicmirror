@@ -155,7 +155,7 @@ function uploadNewPhoto($userid) {
                 return "[{\"id\": $mysqli->insert_id }]";
             }
     }else{
-        return "is uploaded file is false. File: $_FILES['upfile']['tmp_name']";
+        return "is uploaded file is false. File:" . $_FILES['upfile']['tmp_name'];
     }
     return "ok";
 }
