@@ -154,6 +154,8 @@ function uploadNewPhoto($userid) {
             }else{
                 return "[{\"id\": $mysqli->insert_id }]";
             }
+    }else{
+        return "is uploaded file is false";
     }
     return "bla";
 }
