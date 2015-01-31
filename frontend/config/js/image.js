@@ -29,35 +29,35 @@ jQuery( document ).ready(function() {
 		$( "#name" ).html( "Add photo for "+data[0].nickname+" ("+data[0].firstname+" "+data[0].lastname+")" );
 	});
 	$( "#newphoto" ).append( '<input type="hidden" name="id" value="'+ id +'">' );
-	//Callback handler for form submit event
-	// $("#newphoto").submit(function(e)
-	// {
-		// e.preventDefault(); //Prevent Default action.
-		// if (checkSize('upfile')){			
-			// var formObj = $(this);
-			// var formURL = formObj.attr("action");
-			// var formData = new FormData(this);
-			// var sendForm = $.ajax({
-				// url: formURL,
-				// type: 'POST',
-				// data:  formData,
-				// //dataType: "text", 
-				// mimeType:"multipart/form-data",
-				// contentType: false,
-				// cache: false,
-				// processData:false,
-				// success: function(data, textStatus, jqXHR)
-				// {
-					// //window.location = "eyes.html?id="+ data[0].id;
-					// console.log("return  %o", data);
-				// },
-				// error: function(jqXHR, textStatus, errorThrown)
-				// {
-				// }         
-			// });			
-			// //this.off();
-			// //sendForm.success
-		// }
-	//});
+	Callback handler for form submit event
+	$("#newphoto").submit(function(e)
+	{
+		e.preventDefault(); //Prevent Default action.
+		if (checkSize('upfile')){			
+			var formObj = $(this);
+			var formURL = formObj.attr("action");
+			var formData = new FormData(this);
+			var sendForm = $.ajax({
+				url: formURL,
+				type: 'POST',
+				data:  formData,
+				//dataType: "text", 
+				mimeType:"multipart/form-data",
+				contentType: false,
+				cache: false,
+				processData:false,
+				success: function(data, textStatus, jqXHR)
+				{
+					//window.location = "eyes.html?id="+ data[0].id;
+					console.log("return  %o", data);
+				},
+				error: function(jqXHR, textStatus, errorThrown)
+				{
+				}         
+			});			
+			//this.off();
+			//sendForm.success
+		}
+	});
 	//$("#multiform").submit(); //Submit the form
 });
