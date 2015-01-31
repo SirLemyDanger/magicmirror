@@ -29,7 +29,7 @@ jQuery( document ).ready(function() {
 		$( "#name" ).html( "Add photo for "+data[0].nickname+" ("+data[0].firstname+" "+data[0].lastname+")" );
 	});
 	$( "#newphoto" ).append( '<input type="hidden" name="id" value="'+ id +'">' );
-	Callback handler for form submit event
+	//Callback handler for form submit event
 	$("#newphoto").submit(function(e)
 	{
 		e.preventDefault(); //Prevent Default action.
