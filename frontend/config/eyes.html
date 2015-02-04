@@ -10,17 +10,20 @@
     <body>
         <div id="body">		
 			<img src="DSC_0008.jpg" alt="dummy" id="photo" class="photolist"><br>
-			<table style="border-style:solid; border-collapse:collapse">
-				<tr>
-					<td style="border-right-style:solid;" ><input type="button" id="lefteyebutton" name="Text 1" value="left eye" onclick="righteye=false; lefteye=true;"></td>
-					<td style="border-right-style:solid;"><input type="button" id="righteyebutton" name="Text 1" value="right eye" onclick="righteye=true; lefteye=false;"></td>
-					<td></td>					
-				</tr>
-				<tr>
-					<td style="border-right-style:solid;">x=<input name="le_x" id="le_x" type="text" value="" size="3" maxlength="6" disabled="disabled"> y=<input name="le_y" id="le_y" type="text" value="" size="3" maxlength="6" disabled="disabled"></td>
-					<td style="border-right-style:solid;">x=<input name="re_x" id="re_x" type="text" value="" size="3" maxlength="6" disabled="disabled"> y=<input name="re_y" id="re_y" type="text" value="" size="3" maxlength="6" disabled="disabled"></td>					
-					<td><input type="button" id="submit" name="eyes" value="Save" disabled="disabled" onclick="sendeyes();"></td>				
-				</tr>
+			<form name="eyesform" id="eyesform" action="db.php" method="POST">
+				<table style="border-style:solid; border-collapse:collapse">
+					<tr>
+						<td style="border-right-style:solid;" ><input type="button" id="lefteyebutton" name="Text 1" value="left eye" onclick="righteye=false; lefteye=true;"></td>
+						<td style="border-right-style:solid;"><input type="button" id="righteyebutton" name="Text 1" value="right eye" onclick="righteye=true; lefteye=false;"></td>
+						<td></td>					
+					</tr>
+					<tr>
+						<td style="border-right-style:solid;">x=<input name="le_x" id="le_x" type="text" value="" size="3" maxlength="6" disabled="disabled"> y=<input name="le_y" id="le_y" type="text" value="" size="3" maxlength="6" disabled="disabled"></td>
+						<td style="border-right-style:solid;">x=<input name="re_x" id="re_x" type="text" value="" size="3" maxlength="6" disabled="disabled"> y=<input name="re_y" id="re_y" type="text" value="" size="3" maxlength="6" disabled="disabled"></td>					
+						<td><input type="button" id="submit" name="eyes" value="Save" disabled="disabled" onclick="sendeyes();"></td>				
+					</tr>
+				</table>
+			</form>
         </div>
     </body>
 </html>
