@@ -22,7 +22,7 @@ function sendeyes(){
 			async: true,
 			type: "POST",
 			dataType: "json",
-			data: {"method":"updateeyes", "id": id, "lefteye_x":le_x,"lefteye_y":le_y,"righteye_x":re_x,"righteye_y":re_y}
+			data: {"method":"updateeyes", "id": id, "lefteyeX":le_x,"lefteyeY":le_y,"righteyeX":re_x,"righteyeY":re_y}
 		});
 	}
 };
