@@ -161,6 +161,7 @@ function uploadNewPhoto($userid) {
     return "ok";
 }
 function updateEyes($fotoid,$lefteye_x,$lefteye_y,$righteye_x,$righteye_y){
+    echo "methode wird ausgeführt";
     $query = "UPDATE images SET lefteye_x = '$lefteye_x', lefteye_y = '$lefteye_y', righteye_x = '$righteye_x', righteye_y = '$righteye_y' WHERE id = '$fotoid';";
     $result = $mysqli->real_query($query);
     if(!$result){
@@ -197,7 +198,6 @@ if ($method){
     }elseif ($method == "newphoto"){
         $answer = uploadNewPhoto($id);
     }elseif ($method == "updateeyes"){
-        echo "methode wird aufgerufen";
         $answer = updateEyes($id,$lefteye_x,$lefteye_y,$righteye_x,$righteye_y);
     }
     echo $answer;
