@@ -48,7 +48,7 @@ jQuery( document ).ready(function() {
 				processData:false,
 				success: function(data, textStatus, jqXHR)
 				{
-					window.location = "eyes.html?id="+ data[0].id;
+					window.location.href = "eyes.html?id="+ data[0].id;
 					console.log("return  %o", data);
 				},
 				error: function(jqXHR, textStatus, errorThrown)
