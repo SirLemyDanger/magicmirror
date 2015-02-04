@@ -18,11 +18,11 @@ function sendeyes(){
 		var re_x = $("#re_x").attr("value") / $("#photo").width();
 		var re_y = $("#re_y").attr("value") / $("#photo").height();
 		sendeyes = $.ajax( {
-		url: "db.php",
-		async: true,
-		type: "POST",
-		dataType: "json",
-		data: {"method":"updateeyes", "id": id, "lefteye_x":le_x,"lefteye_y":le_y,"righteye_x":re_x,"righteye_y":re_y}
+			url: "db.php",
+			async: true,
+			type: "POST",
+			dataType: "json",
+			data: {"method":"updateeyes", "id": id, "lefteye_x":le_x,"lefteye_y":le_y,"righteye_x":re_x,"righteye_y":re_y}
 		});
 	}
 };
@@ -51,27 +51,27 @@ jQuery( document ).ready(function() {
 		checkSendButton();
 	});
 	//callback handler for form submit
-$("#eyesform").submit(function(e)
-{
-    var postData = $(this).serializeArray();
-    var formURL = $(this).attr("action");
-    $.ajax(
-    {
-        url : formURL,
-        type: "POST",
-        data : postData,
-		dataType : "json",
-        success:function(data, textStatus, jqXHR)
-        {
-            //data: return data from server
-        },
-        error: function(jqXHR, textStatus, errorThrown)
-        {
-            //if fails     
-        }
-    });
-    e.preventDefault(); //STOP default action
-    e.unbind(); //unbind. to stop multiple form submit.
-});
+// $("#eyesform").submit(function(e)
+// {
+    // var postData = $(this).serializeArray();
+    // var formURL = $(this).attr("action");
+    // $.ajax(
+    // {
+        // url : formURL,
+        // type: "POST",
+        // data : postData,
+		// dataType : "json",
+        // success:function(data, textStatus, jqXHR)
+        // {
+            // //data: return data from server
+        // },
+        // error: function(jqXHR, textStatus, errorThrown)
+        // {
+            // //if fails     
+        // }
+    // });
+    // e.preventDefault(); //STOP default action
+    // e.unbind(); //unbind. to stop multiple form submit.
+// });
  
 });
