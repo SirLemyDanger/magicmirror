@@ -161,7 +161,7 @@ function uploadNewPhoto($userid) {
     return "ok";
 }
 function updateEyes($fotoid,$lefteye_x,$lefteye_y,$righteye_x,$righteye_y){
-    echo "methode wird ausgeführt";
+    global $mysqli;
     $query = "UPDATE images SET lefteye_x = '$lefteye_x', lefteye_y = '$lefteye_y', righteye_x = '$righteye_x', righteye_y = '$righteye_y' WHERE id = '$fotoid';";
     $result = $mysqli->real_query($query);
     if(!$result){
