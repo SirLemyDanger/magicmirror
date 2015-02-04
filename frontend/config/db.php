@@ -178,10 +178,10 @@ if ($method){
     $nickname = $mysqli->real_escape_string(filter_input(INPUT_POST, "nickname"));
     $sex = $mysqli->real_escape_string(filter_input(INPUT_POST, "sex"));
     $birthday = $mysqli->real_escape_string(filter_input(INPUT_POST, "birthday"));
-    $lefteye_x = $mysqli->real_escape_string(filter_input(INPUT_POST, "lefteye_x"));
-    $lefteye_y = $mysqli->real_escape_string(filter_input(INPUT_POST, "lefteye_y"));
-    $righteye_x = $mysqli->real_escape_string(filter_input(INPUT_POST, "righteye_x"));
-    $righteye_y = $mysqli->real_escape_string(filter_input(INPUT_POST, "righteye_y"));
+    $lefteye_x = $mysqli->real_escape_string(filter_input(INPUT_POST, "le_x"));
+    $lefteye_y = $mysqli->real_escape_string(filter_input(INPUT_POST, "le_y"));
+    $righteye_x = $mysqli->real_escape_string(filter_input(INPUT_POST, "re_x"));
+    $righteye_y = $mysqli->real_escape_string(filter_input(INPUT_POST, "re_y"));
     if ($method == "newuser"){
         $answer = newUser($firstname,$lastname,$nickname,$sex,$birthday);
     }elseif ($method == "getallusers"){
