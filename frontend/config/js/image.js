@@ -41,14 +41,14 @@ jQuery( document ).ready(function() {
 				url: formURL,
 				type: 'POST',
 				data:  formData,
-				//dataType: "text", 
+				dataType: "json", 
 				mimeType:"multipart/form-data",
 				contentType: false,
 				cache: false,
 				processData:false,
 				success: function(data, textStatus, jqXHR)
 				{
-					//window.location.href = "eyes.html?id="+ data[0].id;
+					window.location.href = "eyes.html?id="+ data[0].id;
 					console.log("return  %o", data);
 				},
 				error: function(jqXHR, textStatus, errorThrown)
