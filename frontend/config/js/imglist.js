@@ -13,15 +13,23 @@ getUserData = $.ajax( {
 	dataType: "json",
 	data: {"method":"getuserdata", "id": id }
 });
+function resizeLightbox(){
+	var lightbox_length = $('#lightbox').width() - 150*3;
+	if (lightbox_length < 0){
+		lightbox_length = 0;
+	}
+	$('.lightbox').css({"margin": "0 "+ lightbox_length / 6 +"px"});
+}
 function whatnext(e){
 	$('#body').prepend( '<div id="overlay"></div>' );
 	$('#overlay').fadeIn();
 	$('#lightbox').fadeIn(100);
-	var lightbox_length = $('#lightbox').width() - 150*3;
-	$('.lightbox').css({"margin": "0 "+ lightbox_length / 6 +"px"});//.css("marignRight", lightbox_length / 6 +'px');
+	resizeLightbox();
 };
+$( window ).on("resize",resizeLightbox);
 jQuery( document ).ready(function() {
 	$("#imglist").on( "click", "img", whatnext);
+	
 	getUserData.done(function(data){
 		$( "#name" ).html( "Photos for "+data[0].nickname+" ("+data[0].firstname+" "+data[0].lastname+")" );
 	});
