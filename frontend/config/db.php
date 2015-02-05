@@ -156,7 +156,7 @@ function uploadNewPhoto($userid) {
                 return "[{\"id\": {$mysqli->insert_id} }]";
             }
     }else{
-        return "is uploaded file is false. File:" . $_FILES['upfile']['tmp_name'] . $_FILES['upfile']['error'] . "var dump " . var_dump($_FILES);
+        return "is_uploaded_file is false. File:" . $_FILES['upfile']['tmp_name'] . $_FILES['upfile']['error'] . "var dump " . var_dump($_FILES);
     }
     return "ok";
 }
@@ -168,7 +168,7 @@ function updateEyes($fotoid,$lefteye_x,$lefteye_y,$righteye_x,$righteye_y){
         printf("Errormessage: %s\n", $mysqli->error);
         return false;
     }
-    return "[{\"id\":\"$mysqli->insert_id\"}]";
+    return true;
 }
 $answer = "[\"Error. No function executed\"]";
 $method = filter_input(INPUT_POST, "method");
