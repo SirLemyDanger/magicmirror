@@ -18,7 +18,7 @@ function whatnext(e){
 	$('#overlay').fadeIn();
 	$('#lightbox').fadeIn(100);
 	var lightbox_length = $('#lightbox').width() - 150*3;
-	$('.lightbox').css("marign", "0 "+lightbox_length/6);
+	$('.lightbox').css("marign-left", lightbox_length/6 +'px').css("marign-right", lightbox_length/6 +'px');
 	
 	
 };
