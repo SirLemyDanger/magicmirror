@@ -19,11 +19,12 @@ $query= "SELECT last_modified FROM images WHERE id='$id'";
 $result = $mysqli->query($query);
 if(!$result){
     $im = ImageCreate (250,50);
-    $color = ImageColorAllocate ($im, 0, 0, 0);
-    $bgcolor = ImageColorAllocate ($im, 100, 100, 100);
+    $bgcolor = ImageColorAllocate ($im, 0, 0, 0);
+    $color = ImageColorAllocate ($im, 100, 100, 100);
     ImageString ($im, 2, 5, 5, $mysqli->error, $color);
     header("Content-type:image/png");
     ImagePNG($im);
+    exit();
 }else{
     caching_headers($id,$row['last_modified']);
 }
@@ -37,6 +38,7 @@ if(!$result){
     ImageString ($im, 2, 5, 5, $mysqli->error, $color);
     header("Content-type:image/png");
     ImagePNG($im);
+    exit();
 }else{
     $row = $result->fetch_array(MYSQLI_ASSOC);
     header("Content-type: {$row['imgtype']}");
