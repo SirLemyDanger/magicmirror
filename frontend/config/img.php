@@ -3,20 +3,20 @@ require_once(dirname(dirname(__FILE__)) .'/db_connection.php');
 
 function resizeImage($imagedata, $max_width, $max_height)
 {
-    $imagedata = base64_decode($imagedata);
+    //$imagedata = base64_decode($imagedata);
     list($orig_width, $orig_height) = getimagesizefromstring($imagedata);
 
     $width = $orig_width;
     $height = $orig_height;
 
     # taller
-    if ($height > $max_height) {
+    if (($max_height != 0) && ($height > $max_height)) {
         $width = ($max_height / $height) * $width;
         $height = $max_height;
     }
 
     # wider
-    if ($width > $max_width) {
+    if (($max_width != 0) && ($width > $max_width)) {
         $height = ($max_width / $width) * $height;
         $width = $max_width;
     }
