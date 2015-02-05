@@ -10,6 +10,7 @@
     <body>
         <div id="body">		
 			<div id="name"></div>
+			<div id="imglist"></div>
         </div>
     </body>
 </html>
