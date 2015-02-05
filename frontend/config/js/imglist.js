@@ -17,7 +17,7 @@ function whatnext(e){
 	alert("hi2");
 };
 jQuery( document ).ready(function() {
-	$("#imglist").on( "click", "img", whatnext(e));
+	$("#imglist").on( "click", "img", whatnext);
 	getUserData.done(function(data){
 		$( "#name" ).html( "Photos for "+data[0].nickname+" ("+data[0].firstname+" "+data[0].lastname+")" );
 	});
