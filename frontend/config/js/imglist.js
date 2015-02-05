@@ -34,7 +34,7 @@ jQuery( document ).ready(function() {
 		$("#overlay, #lightbox").fadeOut(50);
 	});
 	$("#delete").on( "click", function() {
-		if (confirm("Do you want to delete image no. "+imgid+"?") == true){
+		if (confirm("Do you want to delete image no."+imgid+"?") == true){
 			deleteImg = $.ajax( {
 				url: "db.php",
 				async: true,
@@ -54,7 +54,7 @@ jQuery( document ).ready(function() {
 	});
 	getUserImageIds.done(function(data){
 		for(var i = 0, l = data.length; i < l; ++i){
-			$( "#imglist" ).append( '<img class="photolist" src="img.php?id='+ data[i].id +'" alt="photoid: '+ data[i].id +'" id="'+ data[i].id +'">' );
+			$( "#imglist" ).append( '<img class="photolist" src="img.php?id='+ data[i].id +'&maxheight=600" alt="photoid: '+ data[i].id +'" id="'+ data[i].id +'">' );
 		}
 	});
 	
