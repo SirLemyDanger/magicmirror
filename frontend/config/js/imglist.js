@@ -21,10 +21,11 @@ jQuery( document ).ready(function() {
 		for(var i = 0, l = data.length; i < l; ++i){
 			$( "#body" ).append( '<img class="photolist" src="img.php?id='+ data[i].id +'" alt="photoid: '+ data[i].id +'">' );
 		}
-	});
-	$("img.photolist").click(function(e) {
+		$("img.photolist").click(function(e) {
 		 //alert the clicked position.
 		 //alert(e.offsetX + ',' + e.offsetY);
 		 alert("hi");
+		});
 	});
+	
 });
