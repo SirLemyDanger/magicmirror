@@ -3,6 +3,7 @@ require_once(dirname(dirname(__FILE__)) .'/db_connection.php');
 
 function resizeImage($imagedata, $max_width, $max_height)
 {
+    $imagedata = base64_decode($imagedata);
     list($orig_width, $orig_height) = getimagesizefromstring($imagedata);
 
     $width = $orig_width;
