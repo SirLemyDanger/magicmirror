@@ -40,7 +40,7 @@ jQuery( document ).ready(function() {
 				async: true,
 				type: "POST",
 				dataType: "json",
-				data: {"method":"deleteimage", "id": imgid }
+				data: {"method":"deletephoto", "id": imgid }
 			});
 			deleteImg.done(function(){
 				$('#imgid').remove();
