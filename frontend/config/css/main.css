@@ -2,7 +2,7 @@ img.photolist{
 	height: 300px;
 }
 div#overlay{
-	z-index: 2000;
+	z-index: 1000;
 	position: fixed;
 	top: 0px;
 	left: 0px;
@@ -10,5 +10,11 @@ div#overlay{
 	width: 100%;
 	background-color: black;
 	opacity: 0.4;
+	display: none;
 }
+div#lightbox{
+	z-index: 1010;
+	left: 5%;
+	width: 90%;
+	}
 	

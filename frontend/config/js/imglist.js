@@ -14,7 +14,8 @@ getUserData = $.ajax( {
 	data: {"method":"getuserdata", "id": id }
 });
 function whatnext(e){
-	$('#body').append( '<div id="overlay"></div>' );
+	$('#body').prepend( '<div id="overlay"></div>' );
+	$('#overlay').show(10000);
 };
 jQuery( document ).ready(function() {
 	$("#imglist").on( "click", "img", whatnext);
