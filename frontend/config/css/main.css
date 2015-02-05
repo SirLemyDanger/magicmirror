@@ -14,7 +14,12 @@ div#overlay{
 }
 div#lightbox{
 	z-index: 1010;
+	position: fixed;
+	background-color: whitesmoke;
 	left: 5%;
 	width: 90%;
+	top: 20%;
+	border-radius: 2px;
+	display: none;
 	}
 	

@@ -10,6 +10,7 @@
     <body>
         <div id="body">		
 			<div id="name"></div>
+			<div id="lightbox"><div>Set eye coordinates</div><div>Delete Image</div><div>Cancel</div></div>
 			<div id="imglist"></div>
         </div>
     </body>
