@@ -20,7 +20,8 @@ jQuery( document ).ready(function() {
 	});
 	getUserImageIds.done(function(data){
 		for(var i = 0, l = data.length; i < l; ++i){
-			$( "#body" ).append( '<img class="photolist" src="img.php?id='+ data[i].id +'" alt="photoid: '+ data[i].id +'">' );
+			$( "#body" ).append( '<img class="photolist" src="img.php?id='+ data[i].id +'" alt="photoid: '+ data[i].id +'" id="'+ data[i].id +'">' );
+			$("img.photolist").unbind("click");
 			$("img.photolist").click(function(e) {
 				 //alert the clicked position.
 				 //alert(e.offsetX + ',' + e.offsetY);
