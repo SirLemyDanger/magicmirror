@@ -18,7 +18,7 @@ function resizeLightbox(){
 	if (lightbox_length < 0){
 		lightbox_length = 0;
 	}
-	$('.lightbox').css({"margin": "0 "+ Math.floor(lightbox_length / 6) +"px"});
+	$('.lightbox').css({"margin": "0 "+ Math.floor(lightbox_length / 6) - 1 +"px"});
 }
 function whatnext(e){
 	$('#body').prepend( '<div id="overlay"></div>' );
