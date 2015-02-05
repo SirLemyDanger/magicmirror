@@ -22,4 +22,8 @@ div#lightbox{
 	border-radius: 2px;
 	display: none;
 	}
-	
+.lightbox{
+	position: absolute;
+	width: 30%;
+	margin: 0 auto;
+}
