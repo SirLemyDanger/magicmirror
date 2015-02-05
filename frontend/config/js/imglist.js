@@ -14,7 +14,7 @@ getUserData = $.ajax( {
 	data: {"method":"getuserdata", "id": id }
 });
 function whatnext(e){
-	alert("hi2");
+	alert(this.attr("alt"));
 };
 jQuery( document ).ready(function() {
 	$("#imglist").on( "click", "img", whatnext);
@@ -24,10 +24,7 @@ jQuery( document ).ready(function() {
 	getUserImageIds.done(function(data){
 		for(var i = 0, l = data.length; i < l; ++i){
 			$( "#imglist" ).append( '<img class="photolist" src="img.php?id='+ data[i].id +'" alt="photoid: '+ data[i].id +'" id="'+ data[i].id +'">' );
-			//$("img.photolist").unbind("click");
-			//$("img.photolist").on( "click", "img", whatnext(e));
 		}
-		
 	});
 	
 });
