@@ -15,7 +15,9 @@ getUserData = $.ajax( {
 });
 function whatnext(e){
 	$('#body').prepend( '<div id="overlay"></div>' );
-	$('#overlay').fadeIn(10000);
+	$('#overlay').fadeIn();
+	$('#body').prepend( '<div id="lightbox">hi kids</div>' );
+	
 };
 jQuery( document ).ready(function() {
 	$("#imglist").on( "click", "img", whatnext);
