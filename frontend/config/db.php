@@ -160,6 +160,11 @@ function uploadNewPhoto($userid) {
     }
     return "ok";
 }
+function deletePhoto($id) {
+    global $mysqli;
+    $query = "DELETE FROM images WHERE id = '$id'";
+    return $mysqli->query($query);  
+}
 function updateEyes($fotoid,$lefteye_x,$lefteye_y,$righteye_x,$righteye_y){
     global $mysqli;
     $query = "UPDATE images SET lefteye_x = '$lefteye_x', lefteye_y = '$lefteye_y', righteye_x = '$righteye_x', righteye_y = '$righteye_y' WHERE id = '$fotoid';";
@@ -197,8 +202,12 @@ if ($method){
         $answer = getUserImageIds($id);
     }elseif ($method == "newphoto"){
         $answer = uploadNewPhoto($id);
+    }elseif ($method == "deletephoto"){
+        $answer = deletePhoto($id);
     }elseif ($method == "updateeyes"){
         $answer = updateEyes($id,$lefteye_x,$lefteye_y,$righteye_x,$righteye_y);
+    }else{
+        echo "\"$method\" is an unknown method";
     }
     echo $answer;
     return;
