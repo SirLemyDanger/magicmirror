@@ -14,11 +14,11 @@ getUserData = $.ajax( {
 	data: {"method":"getuserdata", "id": id }
 });
 function resizeLightbox(){
-	var lightbox_length = Math.floor($('#lightbox').width() - 150*3);
+	var lightbox_length = $('#lightbox').width() - 150*3;
 	if (lightbox_length < 0){
 		lightbox_length = 0;
 	}
-	$('.lightbox').css({"margin": "0 "+ lightbox_length / 6 +"px"});
+	$('.lightbox').css({"margin": "0 "+ Math.floor(lightbox_length / 6) +"px"});
 }
 function whatnext(e){
 	$('#body').prepend( '<div id="overlay"></div>' );
