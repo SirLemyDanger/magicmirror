@@ -43,7 +43,7 @@ jQuery( document ).ready(function() {
 				data: {"method":"deletephoto", "id": imgid }
 			});
 			deleteImg.done(function(){
-				$('#imgid').remove();
+				$('#' + imgid).remove();
 				$("#cancel").click();
 			});
 		}
