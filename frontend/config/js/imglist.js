@@ -28,8 +28,10 @@ function whatnext(e){
 };
 $( window ).on("resize",resizeLightbox);
 jQuery( document ).ready(function() {
-	$("#imglist").on( "click", "img", whatnext);
-	
+	$("#cancel").on( "click", function() {
+		$("#overlay #lightbox").fadeOut(50);
+	});
+	$("#imglist").on( "click", "img", whatnext);	
 	getUserData.done(function(data){
 		$( "#name" ).html( "Photos for "+data[0].nickname+" ("+data[0].firstname+" "+data[0].lastname+")" );
 	});
