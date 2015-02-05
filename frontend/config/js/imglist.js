@@ -29,7 +29,10 @@ function whatnext(e){
 $( window ).on("resize",resizeLightbox);
 jQuery( document ).ready(function() {
 	$("#cancel").on( "click", function() {
-		$("#overlay #lightbox").fadeOut(50);
+		$("#overlay, #lightbox").fadeOut(50);
+	});
+	$("#delete").on( "click", function() {
+		//$("#overlay #lightbox").fadeOut(50);
 	});
 	$("#imglist").on( "click", "img", whatnext);	
 	getUserData.done(function(data){
