@@ -57,8 +57,7 @@ if(!$result){
             $maxwidth = 0;
         }
         header("Content-type:image/png");
-        var_dump(gd_info());
-        imagepng(resizeImage($row, $maxwidth, $maxheight));
+        imagepng(resizeImage($row['imgdata'], $maxwidth, $maxheight));
     }
 }
 ?>
