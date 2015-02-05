@@ -18,12 +18,17 @@ div#lightbox{
 	background-color: whitesmoke;
 	left: 5%;
 	width: 90%;
+	height: 30%;
 	top: 20%;
 	border-radius: 2px;
 	display: none;
-	}
+}
 .lightbox{
-	position: absolute;
-	width: 30%;
+	float: left;
+	width: 150px;
+}
+#wrapper{
+	width: 100%;
 	margin: 0 auto;
+	background-color: gray;
 }
