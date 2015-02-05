@@ -1,4 +1,5 @@
 var id = $.getUrlVar("id");
+var imgid;
 getUserImageIds = $.ajax( {
 	url: "db.php",
 	async: true,
@@ -22,9 +23,10 @@ function resizeLightbox(){
 }
 function whatnext(e){
 	$('#body').prepend( '<div id="overlay"></div>' );
-	$('#overlay').fadeIn();
+	$('#overlay').fadeIn(100);
 	$('#lightbox').fadeIn(100);
 	resizeLightbox();
+	imgid = $(this).attr("id")
 };
 $( window ).on("resize",resizeLightbox);
 jQuery( document ).ready(function() {
@@ -32,7 +34,19 @@ jQuery( document ).ready(function() {
 		$("#overlay, #lightbox").fadeOut(50);
 	});
 	$("#delete").on( "click", function() {
-		//$("#overlay #lightbox").fadeOut(50);
+		if (confirm("Do you want to delete image no. "+imgid+"?") == true){
+			deleteImg = $.ajax( {
+				url: "db.php",
+				async: true,
+				type: "POST",
+				dataType: "json",
+				data: {"method":"deleteimage", "id": imgid }
+			});
+			deleteImg.done(function(){
+				$('#imgid').remove();
+				$("#cancel").click();
+			});
+		}
 	});
 	$("#imglist").on( "click", "img", whatnext);	
 	getUserData.done(function(data){
