@@ -20,7 +20,7 @@ div#lightbox{
 	width: 90%;
 	height: 30%;
 	top: 20%;
-	border-radius: 2px;
+	border-radius: 3px;
 	display: none;
 }
 .lightbox{
