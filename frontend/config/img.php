@@ -29,9 +29,12 @@ function resizeImage($imagedata, $max_width, $max_height)
     return $image_p;
 }
 
-$id = $mysqli->real_escape_string(filter_input(INPUT_GET, "id"));
-$maxheight = $mysqli->real_escape_string(filter_input(INPUT_GET, "maxheight"));
-$maxwidth = $mysqli->real_escape_string(filter_input(INPUT_GET, "maxwidth"));
+//$id = $mysqli->real_escape_string(filter_input(INPUT_GET, "id"));
+//$maxheight = $mysqli->real_escape_string(filter_input(INPUT_GET, "maxheight"));
+//$maxwidth = $mysqli->real_escape_string(filter_input(INPUT_GET, "maxwidth"));
+$id = 3;
+$maxwidth = false;
+$maxheight = 600;
 $query= "SELECT imgdata,imgtype FROM images WHERE id='$id'";
 $result = $mysqli->query($query);
 if(!$result){
