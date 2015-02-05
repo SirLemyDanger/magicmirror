@@ -14,7 +14,7 @@ getUserData = $.ajax( {
 	data: {"method":"getuserdata", "id": id }
 });
 function whatnext(e){
-	alert(this.attr("alt"));
+	alert($(this).attr("alt"));
 };
 jQuery( document ).ready(function() {
 	$("#imglist").on( "click", "img", whatnext);
