@@ -46,6 +46,12 @@ if(!$result){
         header("Content-type: {$row['imgtype']}");
         echo $row['imgdata'];
     }else{
+        if ( $maxheight == false){
+            $maxheight = 0;
+        }
+        if ($maxwidth == false ){
+            $maxwidth = 0;
+        }
         header("Content-type:image/png");
         imagepng(resizeImage($row, $maxwidth, $maxheight));
     }
