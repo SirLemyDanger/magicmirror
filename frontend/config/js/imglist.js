@@ -14,7 +14,7 @@ getUserData = $.ajax( {
 	data: {"method":"getuserdata", "id": id }
 });
 function resizeLightbox(){
-	var lightbox_length = $('#lightbox').width() - 150*3;
+	var lightbox_length = floor($('#lightbox').width() - 150*3);
 	if (lightbox_length < 0){
 		lightbox_length = 0;
 	}
