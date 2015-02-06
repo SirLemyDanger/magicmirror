@@ -65,7 +65,11 @@ function updateUser($id,$firstname,$lastname,$nickname,$sex,$birthday) {
 function deleteUser($id) {
     global $mysqli;
     $query = "DELETE FROM user WHERE id = '$id'";
-    return $mysqli->query($query);    
+    $result = $mysqli->query($query);
+    if (!result){
+            return $mysqli->error;
+    }
+    return "[{\"id\" : \"$id\"}]"; 
 }
 function getUserImageIds($userid){
     global $mysqli;
