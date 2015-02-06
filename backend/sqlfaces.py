@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 import sys
-sys.path.append('/usr/local/lib/python2.7/dist-packages')
+sys.path.append('/home/pi/opencv-2.4.9/release/lib/cv2.so')
 import newfaces
 import Image
 import mysql.connector
