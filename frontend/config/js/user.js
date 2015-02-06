@@ -8,7 +8,7 @@ getUserData = $.ajax( {
 });
 jQuery( document ).ready(function() {
 	$("#userlist").on( "click", "td a#delete", function(){
-		if( confirm("Delete User (and all of his photos - not implemented yet)?") == true){
+		if( confirm("Delete User (and all of his/her photos - not implemented yet)?") == true){
 			deleteUser = $.ajax( {
 				url: "db.php",
 				async: true,
@@ -29,7 +29,7 @@ jQuery( document ).ready(function() {
 								"<td class=\"nickname\">"+data[i].nickname+"</td>\n"+
 								"<td class=\"edit\"><a href=\"updateuser.html?id="+data[i].id+"\">edit</a>"+
 								//"<td class=\"delete\"><a href=\"deleteuser.html?id="+data[i].id+"\">delete</a>"+
-								"<td class=\"delete\"><a id=\"delete\" name=\""+data[i].id+"\">delete</a>"+
+								"<td class=\"delete\"><a id=\"delete\" herf="" name=\""+data[i].id+"\">delete</a>"+
 								"<td class=\"photo\"><a href=\"imglist.php?id="+data[i].id+"\">show photos</a>"+								
 								"<td class=\"photo\"><a href=\"image_upload.html?id="+data[i].id+"\">add photo</a>"+								
 							"</tr>";
