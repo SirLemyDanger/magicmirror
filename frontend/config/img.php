@@ -10,37 +10,23 @@ function caching_headers ($filename, $timestamp) {
     if(isset($_SERVER['HTTP_IF_MODIFIED_SINCE']) || isset($_SERVER['HTTP_IF_NONE_MATCH'])) {
         if ($_SERVER['HTTP_IF_MODIFIED_SINCE'] == $gmt_mtime || str_replace('"', '', stripslashes($_SERVER['HTTP_IF_NONE_MATCH'])) == md5($timestamp.$filename)) {
             header('HTTP/1.1 304 Not Modified');
-            //exit();
+            exit();
         }
     }
 }
 $id = $mysqli->real_escape_string(filter_input(INPUT_GET, "id"));
-$query= "SELECT last_modified FROM images WHERE id='$id'";
-$result = $mysqli->query($query);
-if(!$result){
-    $im = ImageCreate (250,50);
-    $bgcolor = ImageColorAllocate ($im, 0, 0, 0);
-    $color = ImageColorAllocate ($im, 100, 100, 100);
-    ImageString ($im, 2, 5, 5, $mysqli->error, $color);
-    header("Content-type:image/png");
-    ImagePNG($im);
-    exit();
-}else{
-    caching_headers($id,$row['last_modified']);
-}
-
-$query= "SELECT imgdata,imgtype FROM images WHERE id='$id'";
+$query= "SELECT imgdata, imgtype, last_modified FROM images WHERE id='$id'";
 $result = $mysqli->query($query);
 if(!$result){
     $im = ImageCreate (250,50);
     $color = ImageColorAllocate ($im, 0, 0, 0);
-    $bgcolor = ImageColorAllocate ($im, 255, 255, 255);
     ImageString ($im, 2, 5, 5, $mysqli->error, $color);
     header("Content-type:image/png");
     ImagePNG($im);
     exit();
 }else{
     $row = $result->fetch_array(MYSQLI_ASSOC);
+    caching_headers($id,$row['last_modified']);
     header("Content-type: {$row['imgtype']}");
     echo $row['imgdata'];
 }
