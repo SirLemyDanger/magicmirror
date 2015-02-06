@@ -1,6 +1,13 @@
 ﻿#! /usr/bin/python
 
-import sys, os, shutil, math, Image, cv2, re, numpy as np
+import sys
+import os
+import shutil
+import math
+import Image
+import cv2
+import re
+import numpy as np
 import csv
 
 face_cascade_d = cv2.CascadeClassifier('/usr/local/share/OpenCV/haarcascades/haarcascade_frontalface_default.xml')
