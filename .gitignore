@@ -54,3 +54,4 @@ docs/_build/
 target/
 
 frontend/config/db_connection.php
+backend/sqlconnection.py
