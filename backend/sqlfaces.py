@@ -1,5 +1,6 @@
 #!/usr/bin/env python
-
+import sys
+sys.path.append('/usr/local/lib/python2.7/dist-packages')
 import newfaces
 import Image
 import mysql.connector
