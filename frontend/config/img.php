@@ -1,5 +1,5 @@
 <?php
-require_once(dirname(dirname(__FILE__)) .'/db_connection.php');
+require_once(realpath(dirname(__FILE__) . '/db_connection.php'));
 
 function caching_headers ($filename, $timestamp) {
     $gmt_mtime = gmdate('r', $timestamp);
