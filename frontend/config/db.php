@@ -1,5 +1,5 @@
 <?php
-require_once(dirname(dirname(__FILE__)) .'/db_connection.php');
+require_once(realpath(dirname(__FILE__) . '/db_connection.php');
 header('Content-Type: text/plain; charset=utf-8');
 
 function newUser($firstname,$lastname,$nickname,$sex,$birthday) {
