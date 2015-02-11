@@ -25,6 +25,7 @@ for row in cursor:
 	image.save(output, format="GIF")
 	data = output.getvalue()
 	cursor.execute(query, (row["id"], data, row["imgtype"], row["userid"]))
+	cnx.commit()
 cursor.close()
 cnx.close()
 
