@@ -19,7 +19,7 @@ for row in cursor:
 	eye_left=(row["lefteye_x"]*width,row["lefteye_y"]*height)
 	eye_right=(row["righteye_x"]*width,row["righteye_y"]*height)
 	image = newfaces.CropFace( image, eye_left, eye_right)
-	query = ("INSERT INTO faces (id, imgdata, imgtype, userid) VALUES (%(id)s, %(imgdata)s, %(imgtype)s, %(userid)s)")
+	query = ("INSERT INTO faces (id, imgdata, imgtype, userid) VALUES (%s, %s, %s, %s)")
 	
 	output = cStringIO.StringIO()
 	image.save(output, format="GIF")
