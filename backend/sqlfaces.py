@@ -22,7 +22,7 @@ def imageToFace(*ids):
 			query = ("REPLACE INTO faces (id, imgdata, imgtype, userid) VALUES (%s, %s, %s, %s)")
 			output = cStringIO.StringIO()
 			image.save(output, format="PNG")
-			imagetype = "image/png"
+			imgtype = "image/png"
 			data = output.getvalue()
 			cursor.execute(query, (id, data, imgtype, row["userid"]))
 			cnx.commit()
