@@ -31,6 +31,7 @@ if(!$result){
     exit();
 }else{
     $row = $result->fetch_array(MYSQLI_ASSOC);
+    $filename = $id . $type;
     caching_headers($id,$row['last_modified']);
     header("Content-type: {$row['imgtype']}");
     echo $row['imgdata'];
