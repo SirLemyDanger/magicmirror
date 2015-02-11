@@ -8,7 +8,7 @@ import newfaces
 
 def imageToFace(*ids):
 	cnx = sqlconnection.connecttodb()
-	cursor = DBconnection.cursor(dictionary=True)
+	cursor = cnx.cursor(dictionary=True)
 	for id in ids:
 		query = ("SELECT lefteye_x, lefteye_y, righteye_x, righteye_y, imgdata, userid FROM images WHERE id = (%s)")
 		cursor.execute(query, (id,))
