@@ -15,7 +15,12 @@ function caching_headers ($filename, $timestamp) {
     }
 }
 $id = $mysqli->real_escape_string(filter_input(INPUT_GET, "id"));
-$query= "SELECT imgdata, imgtype, last_modified FROM images WHERE id='$id'";
+$type = $mysqli->real_escape_string(filter_input(INPUT_GET, "type"));
+if ($type == "face"){
+    $query = "SELECT imgdata, imgtype, last_modified FROM faces WHERE id='$id'";
+}else{
+    $query= "SELECT imgdata, imgtype, last_modified FROM images WHERE id='$id'";
+}
 $result = $mysqli->query($query);
 if(!$result){
     $im = ImageCreate (250,50);
