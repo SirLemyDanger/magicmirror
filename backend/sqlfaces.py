@@ -4,11 +4,8 @@ import Image
 import mysql.connector
 import sqlconnection
 import cStringIO
-import newfaces as nf
+import newfaces
 
-
-img = Image.open('/var/www/magicmirror/frontend/config/DSC_0008.jpg')
-img.show()
 raw_input("Press Return ")
 cnx = sqlconnection.connecttodb()
 
@@ -19,7 +16,7 @@ cursor.execute(query, (id,))
 for row in cursor:
 	file_like = cStringIO.StringIO(row["imgdata"])
 	image = Image.open(file_like)
-	image = nf.CropFace( image, eye_left=(row["lefteye_x"],row["lefteye_y"]), eye_right=(row["righteye_x"],row["righteye_y"]))
+	#image = newfaces.CropFace( image, eye_left=(row["lefteye_x"],row["lefteye_y"]), eye_right=(row["righteye_x"],row["righteye_y"]))
 	image.show()
 	raw_input("Press Return ")
 cursor.close()
