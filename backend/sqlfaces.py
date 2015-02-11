@@ -53,7 +53,8 @@ cnx = sqlconnection.connecttodb()
 cursor = cnx.cursor(dictionary=True)
 
 query = ("SELECT id, lefteye_x, lefteye_y, righteye_x, righteye_y, imgdata, imgtype FROM images WHERE id = (%s)")
-cursor.execute(query, (id,))
+data = (id, )
+cursor.execute(query, data)
 for row in cursor:
 	file_like = cStringIO.StringIO(row["imgdata"])
 	image = Image.open(file_like)
