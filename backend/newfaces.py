@@ -1,7 +1,7 @@
 ﻿#! /usr/bin/python
 
-import sys
-sys.path.append('/home/pi/opencv-2.4.9/release/lib/cv2.so')
+#import sys
+#sys.path.append('/home/pi/opencv-2.4.9/release/lib/cv2.so')
 import os
 import shutil
 import math
