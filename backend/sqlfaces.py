@@ -48,7 +48,10 @@ import newfaces as nf
   # # resize it
   # image = image.resize(dest_sz, Image.ANTIALIAS)
   # return image
-  
+
+img = Image.open('../frontend/config/DSC_0008.jpg')
+img.show()
+raw_input("Press Return ")
 cnx = sqlconnection.connecttodb()
 
 cursor = cnx.cursor(dictionary=True)
