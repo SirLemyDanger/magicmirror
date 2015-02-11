@@ -23,8 +23,8 @@ for row in cursor:
 	
 	output = cStringIO.StringIO()
 	image.save(output, format="GIF")
-	output.seek(0)
-	cursor.execute(query, (row["id"], output, row["imgtype"], row["userid"]))
+	data = output.getvalue()
+	cursor.execute(query, (row["id"], data, row["imgtype"], row["userid"]))
 cursor.close()
 cnx.close()
 
