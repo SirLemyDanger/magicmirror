@@ -52,7 +52,7 @@ import newfaces as nf
 cnx = sqlconnection.connecttodb()
 
 cursor = cnx.cursor(dictionary=True)
-id = 2
+id = 3
 query = ("SELECT id, lefteye_x, lefteye_y, righteye_x, righteye_y, imgdata, imgtype FROM images WHERE id = (%s)")
 cursor.execute(query, (id,))
 for row in cursor:
@@ -60,6 +60,7 @@ for row in cursor:
 	image = Image.open(file_like)
 	image = nf.CropFace( image, eye_left=(row["lefteye_x"],row["lefteye_y"]), eye_right=(row["righteye_x"],row["righteye_y"]))
 	image.show()
+	raw_input("Press Return ")
 cursor.close()
 cnx.close()
 
