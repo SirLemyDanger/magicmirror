@@ -16,7 +16,7 @@ for row in cursor:
 	file_like = cStringIO.StringIO(row["imgdata"])
 	image = Image.open(file_like)
 	(width, height) = image.size
-	eye_left(row["lefteye_x"]*width,row["lefteye_y"]*height)
+	eye_left=(row["lefteye_x"]*width,row["lefteye_y"]*height)
 	eye_right=(row["righteye_x"]*width,row["righteye_y"]*height)
 	image = newfaces.CropFace( image, eye_left, eye_right)
 	image.show()
