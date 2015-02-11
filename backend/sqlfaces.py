@@ -20,7 +20,7 @@ for row in cursor:
 	eye_right=(row["righteye_x"]*width,row["righteye_y"]*height)
 	image = newfaces.CropFace( image, eye_left, eye_right)
 	query = ("INSERT INTO faces (id, imgdata, imgtype, userid) VALUES (%(id)s, %(imgdata)s, %(imgtype)s, %(userid)s)")
-	cursor.execute(query, (row["id"], image, row["imgtype"], row["userid"]))
+	cursor.execute(query, (row["id"], StringIO(image), row["imgtype"], row["userid"]))
 cursor.close()
 cnx.close()
 
