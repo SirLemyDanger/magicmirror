@@ -51,7 +51,7 @@ def CropFace(image, eye_left=(0,0), eye_right=(0,0), offset_pct=(0.23,0.23), des
 cnx = sqlconnection.connecttodb()
 
 cursor = cnx.cursor(dictionary=True)
-
+id = 2
 query = ("SELECT id, lefteye_x, lefteye_y, righteye_x, righteye_y, imgdata, imgtype FROM images WHERE id = (%s)")
 data = (id, )
 cursor.execute(query, data)
