@@ -15,7 +15,10 @@ cursor.execute(query, (id,))
 for row in cursor:
 	file_like = cStringIO.StringIO(row["imgdata"])
 	image = Image.open(file_like)
-	image = newfaces.CropFace( image, eye_left=(row["lefteye_x"],row["lefteye_y"]), eye_right=(row["righteye_x"],row["righteye_y"]))
+	(width, height) = image.size
+	eye_left(row["lefteye_x"]*width,row["lefteye_y"]*height)
+	eye_right=(row["righteye_x"]*width,row["righteye_y"]*height)
+	image = newfaces.CropFace( image, eye_left, eye_right)
 	image.show()
 	raw_input("Press Return ")
 cursor.close()
