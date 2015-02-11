@@ -10,7 +10,7 @@ cnx = sqlconnection.connecttodb()
 
 cursor = cnx.cursor(dictionary=True)
 id = 17
-query = ("SELECT id, lefteye_x, lefteye_y, righteye_x, righteye_y, imgdata, imgtype FROM images WHERE id = (%s)")
+query = ("SELECT id, lefteye_x, lefteye_y, righteye_x, righteye_y, imgdata, imgtype, userid FROM images WHERE id = (%s)")
 cursor.execute(query, (id,))
 for row in cursor:
 	file_like = cStringIO.StringIO(row["imgdata"])
@@ -19,8 +19,8 @@ for row in cursor:
 	eye_left=(row["lefteye_x"]*width,row["lefteye_y"]*height)
 	eye_right=(row["righteye_x"]*width,row["righteye_y"]*height)
 	image = newfaces.CropFace( image, eye_left, eye_right)
-	image.show()
-	raw_input("Press Return ")
+	query = ("INSERT INTO faces (id, imgdata, imgtype, userid) VALUES (%(id)s, %(imgdata)s, %(imgtype)s, %(userid)s)")
+	cursor.execute(query, (row["id"], image, row["imgtype"], row["userid"]))
 cursor.close()
 cnx.close()
 
