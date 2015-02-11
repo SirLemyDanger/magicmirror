@@ -19,6 +19,7 @@ $type = $mysqli->real_escape_string(filter_input(INPUT_GET, "type"));
 if ($type == "face"){
     $query = "SELECT imgdata, imgtype, last_modified FROM faces WHERE id='$id'";
 }else{
+    $type = "photo";
     $query= "SELECT imgdata, imgtype, last_modified FROM images WHERE id='$id'";
 }
 $result = $mysqli->query($query);
