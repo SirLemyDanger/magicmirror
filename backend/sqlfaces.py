@@ -21,7 +21,7 @@ for row in cursor:
 	image = newfaces.CropFace( image, eye_left, eye_right)
 	query = ("INSERT INTO faces (id, imgdata, imgtype, userid) VALUES (%(id)s, %(imgdata)s, %(imgtype)s, %(userid)s)")
 	
-	output = StringIO.StringIO()
+	output = cStringIO.StringIO()
 	image.save(output, format="GIF")
 	cursor.execute(query, (row["id"], output, row["imgtype"], row["userid"]))
 cursor.close()
