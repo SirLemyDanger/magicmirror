@@ -18,7 +18,7 @@ function faceForID($ids){
         posix_mkfifo( $pipe, 0666 );
     }
     $handle = fopen("/tmp/pipe_faceIDs", "w");
-	fwrite($handle, $jsonTransfer)
+	fwrite($handle, $jsonTransfer);
     fclose($handle);
-	}
+}
 faceForID($ids);
