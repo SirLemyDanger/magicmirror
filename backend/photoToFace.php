@@ -21,3 +21,4 @@ function faceForID($ids){
 	fwrite($handle, $jsonTransfer)
     fclose($handle);
 	}
+faceForID($ids);
