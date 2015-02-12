@@ -37,12 +37,12 @@ if __name__ == "__main__":
 	pipename_in="/tmp/pipe_faceIDs"
 	if not os.path.exists(pipename_in):
 		os.umask(0)
-		os.mkfifo(pipename,0666)
+		os.mkfifo(pipename_in,0666)
 	# output pipe
 	pipename_out="/tmp/pipe_faceIDs_back"
 	if not os.path.exists(pipename_out):
 		os.umask(0)
-		os.mkfifo(pipename,0666)
+		os.mkfifo(pipename_out,0666)
 	
 	while True:
 		with open(pipename_in, "r") as pipein:
