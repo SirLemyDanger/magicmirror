@@ -7,6 +7,7 @@ import cStringIO
 import newfaces
 import os
 import json
+import sys
 
 def imageToFace(ids):
 	cnx = sqlconnection.connecttodb()
