@@ -1,7 +1,6 @@
 <?php
 
-$ids = 25;
-function faceForID($ids){
+function faceForIDs($ids){
 	if (!is_array($ids)){
 		$ids = array($ids);
 	}
@@ -24,4 +23,4 @@ function faceForID($ids){
 	fwrite($handle, $jsonTransfer);
     fclose($handle);
 }
-faceForID($ids);
+faceForIDs($ids);
