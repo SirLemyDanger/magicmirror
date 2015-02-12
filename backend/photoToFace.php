@@ -1,7 +1,10 @@
 <?php
 
-$ids = array('22','23','24');
+$ids = 25;
 function faceForID($ids){
+	if (!is_array($ids)){
+		$ids = array($ids);
+	}
 	$transfer = array('ids' => $ids);
 	$jsonTransfer = json_encode($transfer);
 		
