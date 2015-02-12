@@ -35,7 +35,7 @@ def allImagesToFace():
 	cnx = sqlconnection.connecttodb()
 	cursor = cnx.cursor(dictionary=True)
 	query = ("SELECT lefteye_x, lefteye_y, righteye_x, righteye_y, imgdata, userid FROM images WHERE id = (%s)")
-		cursor.execute(query, (id,))
+	cursor.execute(query, (id,))
 	cnx = sqlconnection.connecttodb()
 	cursor = cnx.cursor(dictionary=True)
 	return
