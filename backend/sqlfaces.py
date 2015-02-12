@@ -48,4 +48,5 @@ if __name__ == "__main__":
 		with open(pipename_in, "r") as pipein:
 			for line in pipein:
 				jsonQuery = json.loads(line)
+				print jsonQuery["ids"]
 				imageToFace(jsonQuery["ids"])
