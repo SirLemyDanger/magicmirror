@@ -5,8 +5,10 @@ import mysql.connector
 import sqlconnection
 import cStringIO
 import newfaces
+import os
+import json
 
-def imageToFace(*ids):
+def imageToFace(ids):
 	cnx = sqlconnection.connecttodb()
 	cursor = cnx.cursor(dictionary=True)
 	for id in ids:
@@ -32,3 +34,20 @@ def imageToFace(*ids):
 if __name__ == "__main__":
 	
 	imageToFace(17,18,19,20)
+	
+	# input pipe
+	pipename_in="/tmp/pipe_faceIDs"
+	if not os.path.exists(pipename_in):
+		os.umask(0)
+		os.mkfifo(pipename,0666)
+	# output pipe
+	pipename_out="/tmp/pipe_faceIDs_back"
+	if not os.path.exists(pipename_out):
+		os.umask(0)
+		os.mkfifo(pipename,0666)
+	
+	while True:
+		with open(pipename_in, "r") as pipein:
+			for line in pipein:
+				jsonQuery = json.loads(line)
+				imageToFace(jsonQuery["ids"])
