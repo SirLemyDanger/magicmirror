@@ -32,9 +32,7 @@ def imageToFace(ids):
 	cnx.close()
 
 if __name__ == "__main__":
-	
-	imageToFace(17,18,19,20)
-	
+		
 	# input pipe
 	pipename_in="/tmp/pipe_faceIDs"
 	if not os.path.exists(pipename_in):
