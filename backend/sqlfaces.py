@@ -48,7 +48,7 @@ if __name__ == "__main__":
 			else:
 				print "usage: {0} [--all|-a]	generates for all possible images in DB faces".format(sys.argv[0])
 				sys.exit(1)
-	elif sys.argv == 1:
+	elif sys.argv < 2:
 		# input pipe
 		pipename_in="/tmp/pipe_faceIDs"
 		if not os.path.exists(pipename_in):
