@@ -11,7 +11,7 @@ import csv
 import labels
 
 def savePhoto(pipename):
-	with os.open(pipename, os.O_RDONLY|os.O_NONBLOCK) as pipe:
+	with os.open(pipename, os.O_RDONLY|O_NONBLOCK) as pipe:
 				for line in pipe:
 					jsonQuery = json.loads(line)
 					print jsonQuery
