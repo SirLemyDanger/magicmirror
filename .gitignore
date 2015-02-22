@@ -55,5 +55,4 @@ target/
 
 frontend/config/db_connection.php
 backend/sqlconnection.py
-*~
 backend/cardDav_connection.php
