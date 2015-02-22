@@ -24,9 +24,9 @@ if ( $method == "photo" && is_numeric($photocounter) && $userid != False)
     fclose($handle);
 	
 	$pipe_in ="pipe_fotoout";
-    if(!file_exists($pipe)){
+    if(!file_exists($pipe_in)){
         umask(0);
-        posix_mkfifo( $pipe, 0666 );
+        posix_mkfifo( $pipe_in, 0666 );
     }
     $data = "";
     $handle = fopen($pipe_in, "r");
