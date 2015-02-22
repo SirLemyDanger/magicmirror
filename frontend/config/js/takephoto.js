@@ -18,6 +18,6 @@ jQuery( document ).ready(function() {
 		async: true,
 		type: "POST",
 		dataType: "json",
-		data: {"method":"photo", "photocounter": photocounterid , "userid": id}
+		data: {"method":"photo", "photocounter": photocounter , "userid": id}
 	});
 });
