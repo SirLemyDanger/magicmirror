@@ -34,8 +34,8 @@ if ( $method == "photo" && is_numeric($photocounter) && $userid != False)
             $data .= $input;
     }
     fclose($handle);
-    echo $data;
-	
+    #echo $data;
+	echo $jsonTransfer
 }
 else{
 	header($_SERVER["SERVER_PROTOCOL"]." 400 Bad Request");
