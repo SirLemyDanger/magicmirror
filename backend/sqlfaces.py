@@ -8,6 +8,14 @@ import newfaces
 import os
 import json
 import sys
+
+def PilImg2SqlImgData(image):
+	output = cStringIO.StringIO()
+	image.save(output, format="PNG")
+	imgtype = "image/png"
+	data = output.getvalue()
+	return data, imgtype
+	
 def imageToFaceCnx(ids, cnx):	
 	cursor = cnx.cursor(dictionary=True)
 	for id in ids:
@@ -21,10 +29,7 @@ def imageToFaceCnx(ids, cnx):
 			eye_right=(row["righteye_x"]*width,row["righteye_y"]*height)
 			image = newfaces.CropFace( image, eye_left, eye_right)
 			query = ("REPLACE INTO faces (id, imgdata, imgtype, userid) VALUES (%s, %s, %s, %s)")
-			output = cStringIO.StringIO()
-			image.save(output, format="PNG")
-			imgtype = "image/png"
-			data = output.getvalue()
+			data, imgtype = PilImg2SqlImgData(image)
 			cursor.execute(query, (id, data, imgtype, row["userid"]))
 			cnx.commit()
 	cursor.close()
