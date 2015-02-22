@@ -11,6 +11,4 @@
     }
     fclose($handle);
     echo $data;
-    
-
-
+	
