@@ -14,7 +14,7 @@ jQuery( document ).ready(function() {
 	});
 	var photocounter = $( "#photocounter" ).attr("value")
 	takePhotos = $.ajax( {
-		url: "db.php",
+		url: "../../backend/takePhotos.php",
 		async: true,
 		type: "POST",
 		dataType: "json",

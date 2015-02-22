@@ -241,5 +241,6 @@ if ($method){
     echo $answer;
     return;
 }
+header($_SERVER["SERVER_PROTOCOL"]." 400 Bad Request");
 echo "no method";
 return;
