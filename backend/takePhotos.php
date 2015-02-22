@@ -23,7 +23,7 @@ if ( $method == "photo" && is_numeric($photocounter) && $userid != False)
 	fwrite($handle, $jsonTransfer);
     fclose($handle);
 	
-	$pipe_in ="pipe_fotoout";
+	$pipe_in ="/tmp/pipe_fotoout";
     if(!file_exists($pipe_in)){
         umask(0);
         posix_mkfifo( $pipe_in, 0666 );
