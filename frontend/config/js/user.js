@@ -30,8 +30,9 @@ jQuery( document ).ready(function() {
 								"<td class=\"edit\"><a href=\"updateuser.html?id="+data[i].id+"\">edit</a>"+
 								//"<td class=\"delete\"><a href=\"deleteuser.html?id="+data[i].id+"\">delete</a>"+
 								"<td class=\"delete\"><a id=\"delete\" herf=\"\" name=\""+data[i].id+"\">delete</a>"+
-								"<td class=\"photo\"><a href=\"imglist.php?id="+data[i].id+"\">show photos</a>"+								
+								"<td class=\"photolist\"><a href=\"imglist.php?id="+data[i].id+"\">show photos</a>"+								
 								"<td class=\"photo\"><a href=\"image_upload.html?id="+data[i].id+"\">add photo</a>"+								
+								"<td class=\"takephoto\"><a href=\"newpicture.html?id="+data[i].id+"\">take photo(s)</a>"+								
 							"</tr>";
 			$( "#userlist" ).append( userstring );
 		}

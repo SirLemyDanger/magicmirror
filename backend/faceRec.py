@@ -29,7 +29,7 @@ def externalQuery():
 	pipe = os.open(pipename_query, os.O_RDONLY|os.O_NONBLOCK)
 	try:
 		jsonQuery = json.loads(safe_read(pipe))
-		queryType = jsonQuery["type"]
+		queryType = jsonQuery["method"]
 		if queryType == "photo":
 			photocounter += jsonQuery["photocounter"]
 			userid = jsonQuery["userid"]

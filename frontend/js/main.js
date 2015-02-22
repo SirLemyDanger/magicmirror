@@ -77,7 +77,7 @@ jQuery( document ).ready(function() {
 			url: "../backend/faceRec.php",
 			async: true,
 			type: "POST",
-                        //chace: false,
+            //cache: false,
 			dataType: "json"
 		});
 		faceDataRequest.done(function(data){
@@ -86,12 +86,14 @@ jQuery( document ).ready(function() {
 				numOfFaces = 0;
 				$( "#name" ).html("");
 			}else{
-                            if (data[0].typ === "stop"){ 
-                                    stop = true;
-                                    return;
-                            }
-                            numOfFaces = data.length;
-                            $( "#name" ).html(data[0].prediction);
+				if (data[0].typ === "stop"){ 
+						stop = true;
+						return;
+				}
+			numOfFaces = data.length;
+			$( "#name" ).html( "" )
+			for (var i = 0; i < numOfFaces; i++)
+				$( "#name" ).append("ID: "+ data[i].prediction+ " confidence: " +data[i].confidence+ "<br>");
 			}
 		});
 		faceDataRequest.fail(function(textStatus, errorThrown){

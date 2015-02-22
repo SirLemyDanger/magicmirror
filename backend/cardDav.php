@@ -2,12 +2,9 @@
 use Sabre\VObject;
 use Sabre\DAV;
 include 'vendor/autoload.php';
-$settings = array(
-    'baseUri' => "https://malte.single-point-of-failure.com:28966",
-    'userName' => 'mirror',
-    'password' => 'koenig\magicmirror',
-    //'proxy' => 'locahost:8888',
-);
+
+require_once(realpath(dirname(__FILE__) . '/cardDav_connection.php'));
+
 $client = new DAV\Client($settings);
 $method = filter_input(INPUT_GET, "method");
 if (empty($method)){
