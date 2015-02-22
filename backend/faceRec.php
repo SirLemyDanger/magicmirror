@@ -1,8 +1,4 @@
 <?php
-$userid = filter_input(INPUT_POST, "userid"));
-
-
-
     $pipe ="/tmp/pipe_faceRec";
     if(!file_exists($pipe)){
         umask(0);
