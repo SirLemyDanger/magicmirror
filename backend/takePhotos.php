@@ -11,7 +11,7 @@ if ( $method == "photo" && $photocounter != NULL && $userid != NULL)
 else{
 	
 header($_SERVER["SERVER_PROTOCOL"]." 400 Bad Request");
-echo "Bad Request"
+echo "Bad Request";
 }
 
     // $pipe ="/tmp/pipe_faceRec";
