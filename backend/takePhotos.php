@@ -4,7 +4,7 @@ $method = filter_input(INPUT_POST, "method");
 $photocounter = filter_input(INPUT_POST, "photocounter");
 $userid = filter_input(INPUT_POST, "userid");
 
-if ( $method == "photo" && $photocounter != NULL && $userid != NULL)
+if ( $method == "photo" && $photocounter != False && $userid != False)
 {
 	echo is_int($photocounter);
 }
