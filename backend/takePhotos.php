@@ -11,7 +11,7 @@ if ( $method == "photo" && is_numeric($photocounter) && $userid != False)
 					'method' => $method,
 					'photocounter' => $photocounter,
 					'userid' => $userid
-	)
+	);
 	$jsonTransfer = json_encode($transfer);
  
     $pipe_out ="/tmp/pipe_query";
