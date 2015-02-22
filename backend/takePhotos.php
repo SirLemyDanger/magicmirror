@@ -1,8 +1,8 @@
 <?php
 header('Content-Type: text/plain; charset=utf-8');
-$method = filter_input(INPUT_POST, "method"));
-$photocounter = filter_input(INPUT_POST, "photocounter"));
-$userid = filter_input(INPUT_POST, "userid"));
+$method = filter_input(INPUT_POST, "method");
+$photocounter = filter_input(INPUT_POST, "photocounter");
+$userid = filter_input(INPUT_POST, "userid");
 
 if ( $method == "photo" && $photocounter != NULL && $userid != NULL)
 {
