@@ -23,6 +23,8 @@ if ( $method == "photo" && is_numeric($photocounter) && $userid != False)
 	fwrite($handle, $jsonTransfer);
     fclose($handle);
 	
+	echo "writing done"
+	
 	$pipe_in ="/tmp/pipe_fotoout";
     if(!file_exists($pipe_in)){
         umask(0);
@@ -40,4 +42,3 @@ else{
 	header($_SERVER["SERVER_PROTOCOL"]." 400 Bad Request");
 	echo "Bad Request";
 }
-
