@@ -13,7 +13,8 @@ if ( $method == "photo" && is_numeric($photocounter) && $userid != False)
 					'userid' => $userid
 	);
 	$jsonTransfer = json_encode($transfer);
- 
+	echo $jsonTransfer;
+	exit();
     $pipe_out ="/tmp/pipe_query";
     if(!file_exists($pipe_out)){
         umask(0);
