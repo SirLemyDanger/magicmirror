@@ -1,5 +1,6 @@
 <?php
-header('Content-Type: application/json; charset=utf-8');
+#header('Content-Type: application/json; charset=utf-8');
+header('Content-Type: text/plain; charset=utf-8');
 $method = filter_input(INPUT_POST, "method");
 $photocounter = filter_input(INPUT_POST, "photocounter");
 $userid = filter_input(INPUT_POST, "userid");
@@ -13,8 +14,6 @@ if ( $method == "photo" && is_numeric($photocounter) && $userid != False)
 					'userid' => $userid
 	);
 	$jsonTransfer = json_encode($transfer);
-	echo $jsonTransfer;
-	exit();
     $pipe_out ="/tmp/pipe_query";
     if(!file_exists($pipe_out)){
         umask(0);
@@ -35,9 +34,10 @@ if ( $method == "photo" && is_numeric($photocounter) && $userid != False)
             $data .= $input;
     }
     fclose($handle);
-    echo $data;
+    echo $data . $jsonTransfer;
 }
 else{
 	header($_SERVER["SERVER_PROTOCOL"]." 400 Bad Request");
 	echo "Bad Request";
 }
+
