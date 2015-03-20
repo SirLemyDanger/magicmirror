@@ -161,7 +161,8 @@ jQuery( document ).ready(function() {
 
                 });
                 currentWeather.fail(function(textStatus, errorThrown){
-                    alert("Anfrage CurrWeather ist gescheitert. Fehler:" +textStatus+" "+errorThrown);
+					console.log("Anfrage CurrWeather ist gescheitert. %o %o:" ,textStatus, errorThrown);
+                    //alert("Anfrage CurrWeather ist gescheitert. Fehler:" +textStatus+" "+errorThrown);
                 });
 
 		setTimeout(function() {
