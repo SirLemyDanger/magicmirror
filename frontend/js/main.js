@@ -3,9 +3,10 @@ var facePipeMutex = 0;
 var faceDataRequest;
 
 var weatherParams = {
-    'q':'Braunschweig,de',
+    'q':'Darmstadt,de',
     'units':'metric',
-    'lang':'de'
+    'lang':'de',
+	'APPID':'821d72209366eaeb1a7d5adec6c6df5c'
 };
 var birthdays= {};
 var maxBday = 10;
