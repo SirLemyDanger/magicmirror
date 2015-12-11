@@ -111,6 +111,7 @@ def faceRec():
 						pipeout.write(json_transfer)
 			print "exit"
 			return
+	print "End faceRec"
 			
 def initFaceRec():
 	global person_dict, gender_dict, personmodel, sexmodel, face_cascade
