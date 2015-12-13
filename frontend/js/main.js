@@ -66,6 +66,8 @@ jQuery( document ).ready(function() {
                     updateTime();
             }, 1000);
 	})();
+	
+	// receive person ids and genders from face recognition
 	(function updateFaceData()
 	{
 		if (facePipeMutex !== 0){
@@ -94,7 +96,24 @@ jQuery( document ).ready(function() {
 			numOfFaces = data.length;
 			$( "#name" ).html( "" )
 			for (var i = 0; i < numOfFaces; i++)
-				$( "#name" ).append("ID: "+ data[i].prediction+ " confidence: " +data[i].confidence+ "<br>");
+				if (data[i].typ == "sex")
+				{
+					$( "#name" ).append("Geschlecht: "+ data[i].prediction+ " confidence: " +data[i].confidence+ "<br>");
+				}
+				else if ( data[i].typ == "person")
+				{
+					getUserData = $.ajax( {
+						url: "db.php",
+						async: true,
+						type: "POST",
+						dataType: "json",
+						data: {"method":"getuserdata", "id":data[i].prediction}
+					});
+					getUserData.done(function(user){
+						$( "#name" ).append("<br>Hallo "+ user[0].firstname );
+					});
+					
+				}
 			}
 		});
 		faceDataRequest.fail(function(textStatus, errorThrown){
@@ -235,6 +254,7 @@ jQuery( document ).ready(function() {
                 var now = new Date();
                 var year = now.getFullYear();
                 birthdays.bdays.sort(function(a,b) {
+					//sort birthdays
                     var date_a = new Date(a[1]);
                     var date_b = new Date(b[1]);
                     if ((now.getMonth()===date_a.getMonth())&&(now.getDate()===date_a.getDate())){
@@ -262,15 +282,22 @@ jQuery( document ).ready(function() {
                 for (var i=0; i<maxBday; i++) {
                     var birthday = new Date(birthdays.bdays[i][1]);
                     var today = false;
+					var diff;
                     if ((now.getMonth()===birthday.getMonth())&&(now.getDate()===birthday.getDate())){
                         today = true;
                     }else{
                         birthday.setFullYear(year);
-                        var diff = birthday - now;
+						diff = birthday - now;                        
                         if (diff < 0 ){
                             birthday.setFullYear(year+1);
-                        }else if ((0 < diff) && (diff <= 105000)){
+                        }
+						if ((0 < diff) && (diff <= 105000)){
                             speedup = true;
+                        }
+						if (diff > (22*60*60*1000)){//22hours
+                            birthday.setHours(now.getHours());
+							birthday.setMinutes(now.getMinutes());
+							birthday.setSeconds(now.getSeconds());
                         }
                     }
                     var row = $('<tr />').css('opacity', opacity);
