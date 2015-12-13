@@ -282,11 +282,12 @@ jQuery( document ).ready(function() {
                 for (var i=0; i<maxBday; i++) {
                     var birthday = new Date(birthdays.bdays[i][1]);
                     var today = false;
-					var diff = birthday - now;
+					var diff; = birthday - now;
                     if ((now.getMonth()===birthday.getMonth())&&(now.getDate()===birthday.getDate())){
                         today = true;
                     }else{
-                        birthday.setFullYear(year);                        
+                        birthday.setFullYear(year);
+						diff = birthday - now;                        
                         if (diff < 0 ){
                             birthday.setFullYear(year+1);
                         }
