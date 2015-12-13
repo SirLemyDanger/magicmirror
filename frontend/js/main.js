@@ -294,11 +294,11 @@ jQuery( document ).ready(function() {
 						if ((0 < diff) && (diff <= 105000)){
                             speedup = true;
                         }
-						// if (diff > (22*60*60*1000)){//22hours
-                            // birthday.setHours(now.getHours());
-							// birthday.setMinutes(now.getMinutes());
-							// birthday.setSeconds(now.getSeconds());
-                        // }
+						if (diff > (22*60*60*1000)){//22hours
+                            birthday.setHours(now.getHours());
+							birthday.setMinutes(now.getMinutes());
+							birthday.setSeconds(now.getSeconds());
+                        }
                     }
                     var row = $('<tr />').css('opacity', opacity);
                     row.append($('<td/>').addClass('name').html(birthdays.bdays[i][0]));
