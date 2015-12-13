@@ -305,7 +305,7 @@ jQuery( document ).ready(function() {
                         row.append($('<td/>').addClass('timeFromNow').html("heute"));
                     }else{
                         var momentbday = moment(birthday);
-                        row.append($('<td/>').addClass('timeFromNow').html(momentbday.fromnow()));
+                        row.append($('<td/>').addClass('timeFromNow').html(momentbday.fromNow()));
                     }
                     bdayTable.append(row);
                     opacity -= 0.055;
