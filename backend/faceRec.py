@@ -85,6 +85,8 @@ def faceRec():
 				output.truncate(0)
 				camera.capture(output, 'rgb', resize=pictureSize, use_video_port=True)
 				gray = cv2.cvtColor(output.array, cv2.COLOR_RGB2GRAY )
+				cv2.inshow("test",gray)
+				waitKey(0)
 				faces = face_cascade.detectMultiScale(image=gray, scaleFactor=1.1, minNeighbors=5, minSize=(40,40))	
 				json_transfer = "["
 				jsonObjCounter = 0
@@ -112,7 +114,7 @@ def faceRec():
 					with open(pipename, "w") as pipeout:
 						pipeout.write(json_transfer)
 				else:
-					time.sleep(0.5)
+					time.sleep(0.75)
 			print "exit"
 			return
 	print "End faceRec"
