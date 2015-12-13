@@ -282,7 +282,7 @@ jQuery( document ).ready(function() {
                 for (var i=0; i<maxBday; i++) {
                     var birthday = new Date(birthdays.bdays[i][1]);
                     var today = false;
-					var diff; = birthday - now;
+					var diff;
                     if ((now.getMonth()===birthday.getMonth())&&(now.getDate()===birthday.getDate())){
                         today = true;
                     }else{
