@@ -111,6 +111,8 @@ def faceRec():
 				if not json_transfer == "[]":
 					with open(pipename, "w") as pipeout:
 						pipeout.write(json_transfer)
+				else:
+					time.sleep(0.5)
 			print "exit"
 			return
 	print "End faceRec"
