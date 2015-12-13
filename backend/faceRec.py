@@ -81,7 +81,7 @@ def faceRec():
 		print "start with face rec"
 		with picamera.array.PiRGBArray(camera, size=pictureSize) as output:
 			while not(externalQuery()):
-				print foto
+				print "foto"
 				output.truncate(0)
 				camera.capture(output, 'rgb', resize=pictureSize, use_video_port=True)
 				gray = cv2.cvtColor(output.array, cv2.COLOR_RGB2GRAY )
