@@ -87,6 +87,7 @@ def faceRec():
 				gray = cv2.cvtColor(output.array, cv2.COLOR_RGB2GRAY )
 				cv2.imshow("test",gray)
 				cv2.waitKey(0)
+				cv2.destroyAllWindows()
 				faces = face_cascade.detectMultiScale(image=gray, scaleFactor=1.1, minNeighbors=5, minSize=(40,40))	
 				json_transfer = "["
 				jsonObjCounter = 0
