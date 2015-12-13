@@ -81,6 +81,7 @@ def faceRec():
 		print "start with face rec"
 		with picamera.array.PiRGBArray(camera, size=pictureSize) as output:
 			while not(externalQuery()):
+				print foto
 				output.truncate(0)
 				camera.capture(output, 'rgb', resize=pictureSize, use_video_port=True)
 				gray = cv2.cvtColor(output.array, cv2.COLOR_RGB2GRAY )
@@ -106,6 +107,7 @@ def faceRec():
 							json_transfer += json.dumps({"typ":"sex","prediction": gender_dict["num2gender"][g_label],"confidence": g_confidence})
 							jsonObjCounter +=1
 				json_transfer += "]"
+				print json_transfer
 				if not json_transfer == "[]":
 					with open(pipename, "w") as pipeout:
 						pipeout.write(json_transfer)
